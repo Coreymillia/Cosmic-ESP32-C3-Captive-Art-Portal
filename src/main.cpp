@@ -265,7 +265,123 @@ footer{margin-top:16px;font-size:.4rem;letter-spacing:4px;color:rgba(255,255,255
     <span class="desc">L-SYSTEM &middot; ANIMATED BUILD</span>
   </a>
 </div>
-<footer>esp32-c3 super mini &middot; wifi ap &middot; 192.168.4.1 &middot; 34 modes</footer>
+
+<div class="cat">&#x25C6; GAMES</div>
+<div class="grid">
+  <a class="card c1" href="/snake">
+    <span class="icon">&#x1F40D;</span>
+    <span class="name n1">SNAKE</span>
+    <span class="desc">CLASSIC &middot; NEON &middot; TOUCH + KEYS</span>
+  </a>
+</div>
+
+<div class="cat">&#x25C6; SPACE &amp; COSMOS</div>
+<div class="grid">
+  <a class="card cD" href="/deepstars">
+    <span class="icon">&#x2B50;</span>
+    <span class="name nD">DEEP STARS</span>
+    <span class="desc">3D PARALLAX &middot; NEBULA &middot; WARP</span>
+  </a>
+  <a class="card c9" href="/nebula">
+    <span class="icon">&#x1F300;</span>
+    <span class="name n9">NEBULA</span>
+    <span class="desc">GAS CLOUD &middot; STAR FIELD</span>
+  </a>
+  <a class="card cA" href="/plasmaglobe">
+    <span class="icon">&#x26A1;</span>
+    <span class="name nA">PLASMA GLOBE</span>
+    <span class="desc">ELECTRIC TENDRILS &middot; GLOW</span>
+  </a>
+  <a class="card cF" href="/warpgrid">
+    <span class="icon">&#x2395;</span>
+    <span class="name nF">WARP GRID</span>
+    <span class="desc">3D MESH &middot; WAVE DISTORT</span>
+  </a>
+</div>
+
+<div class="cat">&#x25C6; PARTICLE SYSTEMS</div>
+<div class="grid">
+  <a class="card c2" href="/fireworks">
+    <span class="icon">&#x1F386;</span>
+    <span class="name n2">FIREWORKS</span>
+    <span class="desc">LAUNCH &middot; BURST &middot; GRAVITY</span>
+  </a>
+  <a class="card cE" href="/bounceballs">
+    <span class="icon">&#x25CF;</span>
+    <span class="name nE">BOUNCE BALLS</span>
+    <span class="desc">NEON GLOW &middot; PHYSICS</span>
+  </a>
+  <a class="card c5" href="/flowfield">
+    <span class="icon">&#x27BF;</span>
+    <span class="name n5">FLOW FIELD</span>
+    <span class="desc">PERLIN FLOW &middot; PARTICLES</span>
+  </a>
+  <a class="card c1" href="/neonrain">
+    <span class="icon">&#x2605;</span>
+    <span class="name n1">NEON RAIN</span>
+    <span class="desc">SYMBOL SHOWER &middot; GREEN &middot; BLUE</span>
+  </a>
+</div>
+
+<div class="cat">&#x25C6; LIFE &amp; PHYSICS</div>
+<div class="grid">
+  <a class="card c3" href="/coral">
+    <span class="icon">&#x1F420;</span>
+    <span class="name n3">CORAL REEF</span>
+    <span class="desc">CELLULAR GROWTH &middot; OCEAN</span>
+  </a>
+  <a class="card cB" href="/sandfall">
+    <span class="icon">&#x23F3;</span>
+    <span class="name nB">SAND FALL</span>
+    <span class="desc">CELLULAR AUTOMATON &middot; PHYSICS</span>
+  </a>
+  <a class="card c8" href="/lightning">
+    <span class="icon">&#x26A1;</span>
+    <span class="name n8">LIGHTNING</span>
+    <span class="desc">FRACTAL BRANCH &middot; ELECTRIC</span>
+  </a>
+  <a class="card c6" href="/crystal">
+    <span class="icon">&#x1F48E;</span>
+    <span class="name n6">CRYSTAL</span>
+    <span class="desc">HEXAGONAL &middot; PRISMATIC GROW</span>
+  </a>
+</div>
+
+<div class="cat">&#x25C6; PSYCHEDELIC GEOMETRY</div>
+<div class="grid">
+  <a class="card c7" href="/acidspiral">
+    <span class="icon">&#x1F300;</span>
+    <span class="name n7">ACID SPIRAL</span>
+    <span class="desc">MULTI-ARM &middot; HSL CYCLING</span>
+  </a>
+  <a class="card cC" href="/goop">
+    <span class="icon">&#x1FAA0;</span>
+    <span class="name nC">GOOP</span>
+    <span class="desc">ORGANIC BLOBS &middot; TENTACLES</span>
+  </a>
+  <a class="card c4" href="/metaballs">
+    <span class="icon">&#x25D5;</span>
+    <span class="name n4">METABALLS</span>
+    <span class="desc">ISO-SURFACE &middot; MORPHING</span>
+  </a>
+  <a class="card c0" href="/wormhole">
+    <span class="icon">&#x1F30C;</span>
+    <span class="name n0">WORMHOLE</span>
+    <span class="desc">RING VORTEX &middot; CONVERGING</span>
+  </a>
+  <a class="card cD" href="/cwaves">
+    <span class="icon">&#x223F;</span>
+    <span class="name nD">C-WAVES</span>
+    <span class="desc">C-SHAPED SINE &middot; INTERFERENCE</span>
+  </a>
+  <a class="card cF" href="/dna">
+    <span class="icon">&#x1F9EC;</span>
+    <span class="name nF">DNA HELIX</span>
+    <span class="desc">DOUBLE HELIX &middot; 3D ROTATE</span>
+  </a>
+</div>
+
+<footer>esp32-c3 super mini &middot; wifi ap &middot; 192.168.4.1 &middot; 53 modes</footer>
 </body></html>
 )EOF";
 
@@ -2229,6 +2345,1165 @@ void handleDragon()     { server.send(200, "text/html", DRAGON_HTML);     }
 void handleLava2()      { server.send(200, "text/html", LAVA2_HTML);      }
 void handleNoise()      { server.send(200, "text/html", NOISE_HTML);      }
 
+// ── GAMES ──────────────────────────────────────────────────────────────────
+static const char SNAKE_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><title>SNAKE · COSMIC-C3</title>
+<style>*{margin:0;padding:0;box-sizing:border-box}body{background:#000;color:#0f0;font-family:monospace;display:flex;flex-direction:column;align-items:center;height:100vh;overflow:hidden}
+.nav{background:#001100;border-bottom:1px solid #0f0;padding:6px 12px;width:100%;display:flex;justify-content:space-between;align-items:center;font-size:12px}.nav a{color:#0f0;text-decoration:none}
+canvas{display:block;image-rendering:pixelated;border:1px solid #0f0;box-shadow:0 0 14px #0f0;margin-top:4px}
+#score{font-size:13px;color:#0f0;letter-spacing:2px}
+#over{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,16,0,0.97);border:1px solid #0f0;padding:22px 28px;text-align:center;z-index:10;box-shadow:0 0 20px #0f0}
+#over h2{color:#0f0;letter-spacing:4px;margin-bottom:10px;font-size:18px}#over p{color:#0a0;margin-bottom:18px;font-size:13px;letter-spacing:2px}
+#over button{background:#000;border:1px solid #0f0;color:#0f0;padding:10px 24px;font-family:monospace;font-size:14px;cursor:pointer;letter-spacing:3px}#over button:hover{background:#0f0;color:#000}
+#dpad{display:grid;grid-template-columns:repeat(3,50px);grid-template-rows:repeat(3,50px);gap:4px;margin:8px auto}
+.btn{background:#001100;border:1px solid #0f0;color:#0f0;font-size:20px;display:flex;align-items:center;justify-content:center;border-radius:6px;user-select:none;touch-action:manipulation;cursor:pointer}.btn:active{background:#0f0;color:#000}</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span id="score">SCORE: 0 &nbsp; HI: 0</span><span>SNAKE</span></div>
+<canvas id="c"></canvas>
+<div id="over"><h2>GAME OVER</h2><p id="fs">SCORE: 0</p><button onclick="init()">&#x25BA; RESTART</button></div>
+<div id="dpad"><div></div><div class="btn" id="bu">&#x25B2;</div><div></div><div class="btn" id="bl">&#x25C4;</div><div></div><div class="btn" id="br">&#x25BA;</div><div></div><div class="btn" id="bd">&#x25BC;</div><div></div></div>
+<script>
+const C=document.getElementById('c'),ctx=C.getContext('2d');
+const CELL=16,COLS=22,ROWS=20;
+C.width=COLS*CELL;C.height=ROWS*CELL;
+let snake,dir,nd,food,score,hi=0,tid,alive,animId;
+function rand(n){return Math.floor(Math.random()*n)}
+function spawn(){let x,y;do{x=rand(COLS);y=rand(ROWS)}while(snake.some(s=>s[0]==x&&s[1]==y));return[x,y]}
+function init(){
+  snake=[[11,10],[10,10],[9,10],[8,10]];dir=[1,0];nd=[1,0];
+  food=spawn();score=0;alive=true;
+  document.getElementById('over').style.display='none';
+  clearInterval(tid);tid=setInterval(tick,135);
+  cancelAnimationFrame(animId);loop();
+}
+function tick(){
+  if(!alive)return;
+  dir=[...nd];
+  const h=[snake[0][0]+dir[0],snake[0][1]+dir[1]];
+  if(h[0]<0||h[0]>=COLS||h[1]<0||h[1]>=ROWS||snake.some(s=>s[0]==h[0]&&s[1]==h[1])){
+    alive=false;clearInterval(tid);
+    if(score>hi)hi=score;
+    document.getElementById('over').style.display='block';
+    document.getElementById('fs').textContent='SCORE: '+score+(score>0&&score==hi?' \u2605 NEW HI':'');
+    return;
+  }
+  snake.unshift(h);
+  if(h[0]==food[0]&&h[1]==food[1]){
+    score++;hi=Math.max(hi,score);
+    document.getElementById('score').textContent='SCORE: '+score+' \u00A0 HI: '+hi;
+    food=spawn();
+    if(score%5==0){clearInterval(tid);tid=setInterval(tick,Math.max(55,135-score*5));}
+  }else snake.pop();
+}
+function loop(){
+  draw();animId=requestAnimationFrame(loop);
+}
+function draw(){
+  ctx.fillStyle='#000';ctx.fillRect(0,0,C.width,C.height);
+  ctx.fillStyle='#001600';
+  for(let x=0;x<COLS;x++)for(let y=0;y<ROWS;y++)ctx.fillRect(x*CELL+7,y*CELL+7,2,2);
+  const t=Date.now()/300;
+  const r=5+Math.sin(t)*1.5;
+  const fx=food[0]*CELL+CELL/2,fy=food[1]*CELL+CELL/2;
+  const g=ctx.createRadialGradient(fx,fy,0,fx,fy,r+4);
+  g.addColorStop(0,'#ff44aa');g.addColorStop(1,'transparent');
+  ctx.fillStyle=g;ctx.beginPath();ctx.arc(fx,fy,r+4,0,Math.PI*2);ctx.fill();
+  ctx.fillStyle='#ff2288';ctx.beginPath();ctx.arc(fx,fy,r,0,Math.PI*2);ctx.fill();
+  snake.forEach((s,i)=>{
+    const bright=Math.max(0,1-i*0.035);
+    const gb=Math.floor(bright*255),gg=Math.floor(0x22+bright*0xdd);
+    ctx.fillStyle='rgb(0,'+gg+','+gb+')';
+    ctx.fillRect(s[0]*CELL+1,s[1]*CELL+1,CELL-2,CELL-2);
+    if(i==0){
+      ctx.fillStyle='#000';
+      const ey=s[1]*CELL+4,ex1=s[0]*CELL+4,ex2=s[0]*CELL+CELL-7;
+      ctx.fillRect(ex1,ey,3,3);ctx.fillRect(ex2,ey,3,3);
+    }
+  });
+}
+document.addEventListener('keydown',e=>{
+  const m={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0],w:[0,-1],s:[0,1],a:[-1,0],d:[1,0]};
+  const k=m[e.key];if(k&&!(k[0]==-dir[0]&&k[1]==-dir[1])){nd=k;e.preventDefault();}
+});
+function setDir(d){if(!(d[0]==-dir[0]&&d[1]==-dir[1]))nd=d;}
+['bu','bd','bl','br'].forEach((id,i)=>{
+  const dirs=[[0,-1],[0,1],[-1,0],[1,0]];
+  const el=document.getElementById(id);
+  el.addEventListener('touchstart',e=>{setDir(dirs[i]);e.preventDefault();},{passive:false});
+  el.addEventListener('click',()=>setDir(dirs[i]));
+});
+let tx=0,ty=0;
+C.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY;},{passive:true});
+C.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;
+  if(Math.abs(dx)>Math.abs(dy)){setDir(dx>20?[1,0]:[-1,0]);}else{setDir(dy>20?[0,1]:[0,-1]);}
+},{passive:true});
+init();
+</script>
+</body></html>
+)EOF";
+
+static const char FIREWORKS_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FIREWORKS · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #ffaa00;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#ffaa00;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>FIREWORKS</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+const rockets=[];
+const sparks=[];
+function launch(){
+  const x=W*0.15+Math.random()*W*0.7;
+  rockets.push({x,y:H,tx:W*0.1+Math.random()*W*0.8,ty:H*0.1+Math.random()*H*0.4,trail:[]});
+}
+function burst(x,y){
+  const hue=Math.random()*360;
+  const n=60+Math.floor(Math.random()*40);
+  for(let i=0;i<n;i++){
+    const a=Math.random()*Math.PI*2,s=2+Math.random()*5;
+    sparks.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:1,
+      r:Math.round(Math.sin((hue/360)*Math.PI*2)*127+128),
+      g:Math.round(Math.sin((hue/360)*Math.PI*2+2.09)*127+128),
+      b:Math.round(Math.sin((hue/360)*Math.PI*2+4.19)*127+128)});
+  }
+}
+setInterval(launch,700+Math.random()*500);
+function draw(){
+  ctx.fillStyle='rgba(0,0,0,0.18)';ctx.fillRect(0,0,W,H);
+  for(let i=rockets.length-1;i>=0;i--){
+    const r=rockets[i];
+    const dx=r.tx-r.x,dy=r.ty-r.y,d=Math.sqrt(dx*dx+dy*dy);
+    r.trail.push([r.x,r.y]);if(r.trail.length>12)r.trail.shift();
+    if(d<6){burst(r.x,r.y);rockets.splice(i,1);continue;}
+    const sp=4+Math.random()*2;r.x+=dx/d*sp;r.y+=dy/d*sp;
+    r.trail.forEach(([tx,ty],j)=>{
+      ctx.fillStyle=`rgba(255,200,80,${j/r.trail.length*0.8})`;
+      ctx.beginPath();ctx.arc(tx,ty,1.5,0,Math.PI*2);ctx.fill();
+    });
+    ctx.fillStyle='#ffe080';ctx.beginPath();ctx.arc(r.x,r.y,2,0,Math.PI*2);ctx.fill();
+  }
+  for(let i=sparks.length-1;i>=0;i--){
+    const s=sparks[i];
+    s.x+=s.vx;s.y+=s.vy;s.vy+=0.08;s.vx*=0.98;s.life-=0.016;
+    if(s.life<=0){sparks.splice(i,1);continue;}
+    ctx.fillStyle=`rgba(${s.r},${s.g},${s.b},${s.life})`;
+    ctx.beginPath();ctx.arc(s.x,s.y,1.5*s.life,0,Math.PI*2);ctx.fill();
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script>
+</body></html>
+)EOF";
+
+static const char CORAL_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CORAL REEF · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #ff6688;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#ff6688;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>CORAL REEF</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+const COLS=60,ROWS=45;
+const grid=Array.from({length:COLS},()=>new Uint8Array(ROWS));
+const age=Array.from({length:COLS},()=>new Float32Array(ROWS));
+let gen=0;
+// seed bottom row
+for(let x=0;x<COLS;x++)if(Math.random()<0.35){grid[x][ROWS-1]=1;age[x][ROWS-1]=Math.random();}
+function step(){
+  const ng=Array.from({length:COLS},(_,x)=>new Uint8Array(grid[x]));
+  for(let x=1;x<COLS-1;x++)for(let y=1;y<ROWS-1;y++){
+    if(!grid[x][y]){
+      let n=0;
+      for(let dx=-1;dx<=1;dx++)for(let dy=-1;dy<=1;dy++){if(dx==0&&dy==0)continue;if(grid[x+dx][y+dy])n++;}
+      if(n>=1&&n<=3&&grid[x][y+1]&&Math.random()<0.18)ng[x][y]=1;
+    }
+  }
+  for(let x=0;x<COLS;x++)for(let y=0;y<ROWS;y++){grid[x][y]=ng[x][y];if(grid[x][y])age[x][y]+=0.002;}
+  gen++;if(gen>300){gen=0;for(let x=0;x<COLS;x++)for(let y=0;y<ROWS;y++){grid[x][y]=0;age[x][y]=0;}
+    for(let x=0;x<COLS;x++)if(Math.random()<0.35){grid[x][ROWS-1]=1;age[x][ROWS-1]=Math.random();}}
+}
+let t=0;
+function draw(){
+  t+=0.02;
+  ctx.fillStyle='#000c1a';ctx.fillRect(0,0,W,H);
+  const cw=W/COLS,ch=H/ROWS;
+  for(let x=0;x<COLS;x++)for(let y=0;y<ROWS;y++){
+    if(grid[x][y]){
+      const d=(ROWS-y)/ROWS,a=age[x][y];
+      const r=Math.round(220-d*100+Math.sin(t+x*0.3)*20);
+      const g=Math.round(80+d*120+Math.sin(t*0.7+y*0.2)*15);
+      const b=Math.round(120+d*80);
+      ctx.fillStyle=`rgb(${r},${g},${b})`;
+      ctx.fillRect(x*cw,y*ch,cw+1,ch+1);
+    }
+  }
+  // water shimmer
+  for(let bx=0;bx<W;bx+=40){
+    const sy=H*0.05+Math.sin(t+bx*0.04)*8;
+    ctx.strokeStyle='rgba(100,180,255,0.12)';ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(bx,sy);ctx.lineTo(bx+40,sy+Math.sin(t+bx*0.05)*6);ctx.stroke();
+  }
+  if(t%0.5<0.02)step();
+  requestAnimationFrame(draw);
+}
+draw();setInterval(step,80);
+
+</script>
+</body></html>
+)EOF";
+
+static const char CWAVES_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>C-WAVES · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #44aaff;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#44aaff;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>C-WAVES</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+let t=0;
+function draw(){
+  t+=0.025;
+  ctx.fillStyle='rgba(0,0,18,0.25)';ctx.fillRect(0,0,W,H);
+  const cx=W/2,cy=H/2;
+  for(let w=0;w<6;w++){
+    const off=w*Math.PI/3+t*0.25;
+    const amp=15+w*10,rad=30+w*20;
+    const hue=(w*55+t*20)%360;
+    ctx.strokeStyle=`hsla(${hue},100%,65%,0.8)`;ctx.lineWidth=2;
+    ctx.beginPath();let first=true;
+    for(let a=30;a<=330;a+=3){
+      const ra=a*Math.PI/180+off;
+      const wh=Math.sin(ra*3+t*4)*amp*0.3+Math.sin(ra*2+t*2)*amp*0.2;
+      const cr=rad+wh;
+      const x=cx+Math.cos(ra)*cr,y=cy+Math.sin(ra)*cr;
+      first?(ctx.moveTo(x,y),first=false):ctx.lineTo(x,y);
+    }
+    ctx.stroke();
+    // glow endpoints
+    const s=30*Math.PI/180+off,e=330*Math.PI/180+off;
+    ctx.fillStyle=`hsla(${hue},100%,90%,0.9)`;
+    ctx.beginPath();ctx.arc(cx+Math.cos(s)*rad,cy+Math.sin(s)*rad,4,0,Math.PI*2);ctx.fill();
+    ctx.beginPath();ctx.arc(cx+Math.cos(e)*rad,cy+Math.sin(e)*rad,4,0,Math.PI*2);ctx.fill();
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script>
+</body></html>
+)EOF";
+
+static const char DEEPSTARS_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DEEP STARS · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #aaaaff;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#aaaaff;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>DEEP STARS</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+const N=150;
+const sx=new Float32Array(N),sy=new Float32Array(N),sz=new Float32Array(N),sbr=new Float32Array(N);
+for(let i=0;i<N;i++){sx[i]=(Math.random()-0.5)*400;sy[i]=(Math.random()-0.5)*300;sz[i]=Math.random()*100+1;sbr[i]=80+Math.random()*175;}
+let t=0;
+function draw(){
+  t+=0.016;
+  ctx.fillStyle='#000007';ctx.fillRect(0,0,W,H);
+  // nebula wisps
+  for(let nx=0;nx<W;nx+=20){for(let ny=0;ny<H;ny+=20){
+    const nd=Math.sin((nx+t*8)*0.018)*Math.cos((ny+t*6)*0.022);
+    if(nd>0.68){const ni=(nd-0.68)*350|0;ctx.fillStyle=`rgba(${ni>>2},0,${ni},0.4)`;ctx.fillRect(nx,ny,20,20);}
+  }}
+  const cx=W/2,cy=H/2;
+  for(let i=0;i<N;i++){
+    sz[i]-=0.4+Math.sin(t*0.08)*0.25;
+    if(sz[i]<1){sx[i]=(Math.random()-0.5)*400;sy[i]=(Math.random()-0.5)*300;sz[i]=90+Math.random()*10;sbr[i]=80+Math.random()*175;}
+    const px=cx+sx[i]/sz[i]*120,py=cy+sy[i]/sz[i]*120;
+    if(px<0||px>W||py<0||py>H)continue;
+    const size=Math.max(1,(100/sz[i])*2.5)|0;
+    const br=Math.min(255,(sbr[i]/sz[i]*22))|0;
+    let color;
+    if(br>200)color=`rgb(${br},${br},255)`;
+    else if(br>140)color=`rgb(255,${br},${br})`;
+    else if(br>90)color=`rgb(255,${br},${br>>1})`;
+    else color=`rgb(${br},${br>>1},${br>>2})`;
+    ctx.fillStyle=color;ctx.beginPath();ctx.arc(px,py,size,0,Math.PI*2);ctx.fill();
+    if(sz[i]<18&&(t*10+i)%3<1){ctx.strokeStyle=`rgba(${br},${br},255,0.4)`;ctx.lineWidth=1;ctx.beginPath();ctx.arc(px,py,size+2,0,Math.PI*2);ctx.stroke();}
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script>
+</body></html>
+)EOF";
+
+static const char FLOWFIELD_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FLOW FIELD · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #ff8844;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#ff8844;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>FLOW FIELD</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+const NP=120;
+const px=new Float32Array(NP),py=new Float32Array(NP),pa=new Float32Array(NP);
+for(let i=0;i<NP;i++){px[i]=Math.random()*800;py[i]=Math.random()*600;pa[i]=Math.random()*2;}
+let t=0;
+function init(){for(let i=0;i<NP;i++){px[i]=Math.random()*W;py[i]=Math.random()*H;pa[i]=Math.random()*2;}}
+function draw(){
+  t+=0.03;
+  ctx.fillStyle='rgba(0,0,0,0.04)';ctx.fillRect(0,0,W,H);
+  const sc=0.003;
+  for(let i=0;i<NP;i++){
+    const fx=px[i]*sc,fy=py[i]*sc;
+    const angle=Math.sin(fx+t)*Math.cos(fy+t)*Math.PI;
+    const strength=(Math.sin(fx*2+t*0.5)+1)*0.5;
+    const vx=Math.cos(angle)*strength*2.2,vy=Math.sin(angle)*strength*2.2;
+    const ox=px[i],oy=py[i];
+    px[i]+=vx;py[i]+=vy;pa[i]+=0.007;
+    if(px[i]<0||px[i]>W||py[i]<0||py[i]>H||pa[i]>2){px[i]=Math.random()*W;py[i]=Math.random()*H;pa[i]=0;continue;}
+    const al=1-pa[i]/2;
+    const hue=(angle/Math.PI*180+t*30)%360;
+    ctx.strokeStyle=`hsla(${hue|0},100%,65%,${al*0.7})`;ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(ox,oy);ctx.lineTo(px[i],py[i]);ctx.stroke();
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script>
+</body></html>
+)EOF";
+
+static const char METABALLS_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>METABALLS · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #cc44ff;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#cc44ff;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>METABALLS</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+const S=3;let IW,IH,ofc,octx;
+function init(){IW=W/S|0;IH=H/S|0;ofc=new OffscreenCanvas(IW,IH);octx=ofc.getContext('2d');}
+let t=0;
+function draw(){
+  t+=0.02;
+  const id=octx.createImageData(IW,IH);const d=id.data;
+  for(let y=0;y<IH;y++)for(let x=0;x<IW;x++){
+    let f=0;
+    for(let b=0;b<4;b++){
+      const bx=IW/2+Math.cos(t+b*Math.PI/2)*IW*0.28;
+      const by=IH/2+Math.sin(t*0.7+b*Math.PI/2)*IH*0.28;
+      const dx=x-bx,dy=y-by,dist=Math.sqrt(dx*dx+dy*dy)||0.01;
+      f+=900/(dist*dist);
+    }
+    if(f>1){
+      const ff=Math.min(f,8);
+      const i=(y*IW+x)*4;
+      d[i]=Math.min(255,ff*40)|0;
+      d[i+1]=Math.min(255,ff*20)|0;
+      d[i+2]=Math.min(255,ff*70)|0;
+      d[i+3]=255;
+    }
+  }
+  octx.putImageData(id,0,0);
+  ctx.fillStyle='#000';ctx.fillRect(0,0,W,H);
+  ctx.drawImage(ofc,0,0,W,H);
+  requestAnimationFrame(draw);
+}
+init();draw();
+
+</script>
+</body></html>
+)EOF";
+
+static const char GOOP_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>GOOP · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #88ff44;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#88ff44;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>GOOP</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+let t=0;
+function draw(){
+  t+=0.018;
+  ctx.fillStyle='rgba(0,0,0,0.15)';ctx.fillRect(0,0,W,H);
+  const cx=W/2,cy=H/2;
+  const blobs=[];
+  for(let b=0;b<8;b++){
+    const a=b*Math.PI/4+t*0.5;
+    const r=Math.min(W,H)*0.22+Math.sin(t*2+b)*Math.min(W,H)*0.06;
+    blobs.push({x:cx+Math.cos(a)*r,y:cy+Math.sin(a)*r,
+      sz:Math.min(W,H)*0.05+Math.sin(t*3+b*0.7)*Math.min(W,H)*0.025,
+      hue:(b*45+t*25)%360});
+  }
+  blobs.forEach((bl,i)=>{
+    const g=ctx.createRadialGradient(bl.x,bl.y,0,bl.x,bl.y,bl.sz*1.6);
+    g.addColorStop(0,`hsla(${bl.hue},100%,65%,0.9)`);
+    g.addColorStop(1,'transparent');
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(bl.x,bl.y,bl.sz*1.6,0,Math.PI*2);ctx.fill();
+    if(i<7){
+      const n=blobs[i+1];
+      ctx.strokeStyle=`hsla(${bl.hue},100%,60%,0.4)`;ctx.lineWidth=3;
+      ctx.beginPath();ctx.moveTo(bl.x,bl.y);
+      ctx.quadraticCurveTo(cx+Math.sin(t)*30,cy+Math.cos(t)*30,n.x,n.y);ctx.stroke();
+    }
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script>
+</body></html>
+)EOF";
+
+static const char WORMHOLE_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WORMHOLE · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #00ffcc;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#00ffcc;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>WORMHOLE</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+let t=0;
+function draw(){
+  t+=0.025;
+  ctx.fillStyle='rgba(0,0,0,0.2)';ctx.fillRect(0,0,W,H);
+  const cx=W/2,cy=H/2;
+  const N=28;
+  for(let i=0;i<N;i++){
+    const phase=t+i*(Math.PI*2/N)*2;
+    const rad=Math.max(4,(1-i/N)*Math.min(W,H)*0.46);
+    const hue=(i*13+t*40)%360;
+    const alpha=0.55+Math.sin(phase)*0.25;
+    ctx.strokeStyle=`hsla(${hue|0},100%,65%,${alpha})`;
+    ctx.lineWidth=1.5+(i/N)*2;
+    // slightly squished rotating ellipse
+    ctx.save();ctx.translate(cx,cy);ctx.rotate(t*0.4+i*0.18);
+    ctx.beginPath();ctx.ellipse(0,0,rad,rad*0.62,0,0,Math.PI*2);ctx.stroke();
+    ctx.restore();
+  }
+  // center vortex glow
+  const g=ctx.createRadialGradient(cx,cy,0,cx,cy,Math.min(W,H)*0.08);
+  g.addColorStop(0,'rgba(0,255,200,0.7)');g.addColorStop(1,'transparent');
+  ctx.fillStyle=g;ctx.beginPath();ctx.arc(cx,cy,Math.min(W,H)*0.08,0,Math.PI*2);ctx.fill();
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script>
+</body></html>
+)EOF";
+
+static const char CRYSTAL_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CRYSTAL · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #aaddff;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#aaddff;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>CRYSTAL</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+let t=0;
+function draw(){
+  t+=0.022;
+  ctx.fillStyle='rgba(0,0,20,0.22)';ctx.fillRect(0,0,W,H);
+  const cx=W/2,cy=H/2;
+  for(let layer=0;layer<6;layer++){
+    const la=t*0.3+layer*Math.PI/3;
+    const lr=Math.min(W,H)*(0.06+layer*0.07);
+    for(let k=0;k<6;k++){
+      const a=la+k*Math.PI/3;
+      const kx=cx+Math.cos(a)*lr,ky=cy+Math.sin(a)*lr;
+      const sz=Math.min(W,H)*(0.025+Math.sin(t*2+layer+k)*0.012);
+      const hue=(layer*60+k*20+t*30)%360;
+      ctx.strokeStyle=`hsla(${hue|0},100%,75%,0.85)`;ctx.lineWidth=1.5;
+      for(let s=0;s<6;s++){
+        const sa=a+s*Math.PI/3;
+        ctx.beginPath();ctx.moveTo(kx,ky);
+        ctx.lineTo(kx+Math.cos(sa)*sz,ky+Math.sin(sa)*sz);ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(kx+Math.cos(sa)*sz,ky+Math.sin(sa)*sz);
+        ctx.lineTo(kx+Math.cos(sa+Math.PI/3)*sz,ky+Math.sin(sa+Math.PI/3)*sz);ctx.stroke();
+      }
+      ctx.fillStyle=`hsla(${hue|0},100%,95%,0.9)`;
+      ctx.beginPath();ctx.arc(kx,ky,2,0,Math.PI*2);ctx.fill();
+    }
+  }
+  // drifting sparkles
+  for(let i=0;i<18;i++){
+    const pt=t*1.4+i*0.4;
+    const px=cx+Math.sin(pt)*Math.min(W,H)*0.32+Math.cos(pt*0.7)*Math.min(W,H)*0.15;
+    const py=cy+Math.cos(pt)*Math.min(W,H)*0.25+Math.sin(pt*1.3)*Math.min(W,H)*0.12;
+    const sp=3+Math.abs(Math.sin(pt*8))*4|0;
+    ctx.fillStyle=`rgba(180,220,255,${0.6+Math.sin(pt*8)*0.4})`;
+    ctx.beginPath();ctx.arc(px,py,sp,0,Math.PI*2);ctx.fill();
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script>
+</body></html>
+)EOF";
+
+static const char LIGHTNING_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LIGHTNING · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #eeeeff;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#eeeeff;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>LIGHTNING</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+let bolts=[];
+function bolt(x1,y1,x2,y2,depth,hue){
+  if(depth<=0){return[[x1,y1,x2,y2,hue]];}
+  const mx=(x1+x2)/2+(Math.random()-0.5)*(Math.abs(x2-x1)+Math.abs(y2-y1))*0.4;
+  const my=(y1+y2)/2+(Math.random()-0.5)*(Math.abs(x2-x1)+Math.abs(y2-y1))*0.4;
+  const forks=bolt(x1,y1,mx,my,depth-1,hue).concat(bolt(mx,my,x2,y2,depth-1,hue));
+  if(depth>=2&&Math.random()<0.4){
+    const fa=Math.random()*Math.PI*2;
+    const fl=Math.min(W,H)*0.12;
+    forks.push(...bolt(mx,my,mx+Math.cos(fa)*fl,my+Math.sin(fa)*fl,depth-2,(hue+40)%360));
+  }
+  return forks;
+}
+function newStrike(){
+  const sx=W*0.1+Math.random()*W*0.8,hue=180+Math.random()*80;
+  bolts.push({segs:bolt(sx,0,sx+(Math.random()-0.5)*W*0.3,H*0.5+Math.random()*H*0.4,5,hue),life:1});
+}
+setInterval(newStrike,300+Math.random()*400);
+let t=0;
+function draw(){
+  t+=0.05;
+  ctx.fillStyle='rgba(0,0,10,0.3)';ctx.fillRect(0,0,W,H);
+  bolts=bolts.filter(b=>b.life>0);
+  bolts.forEach(b=>{
+    b.segs.forEach(([x1,y1,x2,y2,hue])=>{
+      ctx.strokeStyle=`rgba(200,200,255,${b.life*0.7})`;ctx.lineWidth=b.life*2;
+      ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
+      ctx.strokeStyle=`rgba(255,255,255,${b.life*0.9})`;ctx.lineWidth=b.life*0.5;
+      ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
+    });
+    b.life-=0.045;
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script>
+</body></html>
+)EOF";
+
+static const char BOUNCEBALLS_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>BOUNCE BALLS · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #ff44cc;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#ff44cc;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>BOUNCE BALLS</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+const N=18;
+const bx=new Float32Array(N),by=new Float32Array(N),bvx=new Float32Array(N),bvy=new Float32Array(N);
+const br=new Float32Array(N),bhue=new Float32Array(N);
+function init(){for(let i=0;i<N;i++){bx[i]=Math.random()*W;by[i]=Math.random()*H;
+  bvx[i]=(Math.random()-0.5)*5;bvy[i]=(Math.random()-0.5)*5;
+  br[i]=8+Math.random()*16;bhue[i]=Math.random()*360;}}
+let t=0;
+function draw(){
+  t+=0.02;
+  ctx.fillStyle='rgba(0,0,0,0.12)';ctx.fillRect(0,0,W,H);
+  for(let i=0;i<N;i++){
+    bx[i]+=bvx[i];by[i]+=bvy[i];
+    if(bx[i]<br[i]){bx[i]=br[i];bvx[i]=Math.abs(bvx[i]);}
+    if(bx[i]>W-br[i]){bx[i]=W-br[i];bvx[i]=-Math.abs(bvx[i]);}
+    if(by[i]<br[i]){by[i]=br[i];bvy[i]=Math.abs(bvy[i]);}
+    if(by[i]>H-br[i]){by[i]=H-br[i];bvy[i]=-Math.abs(bvy[i]);}
+    // ball-ball collisions
+    for(let j=i+1;j<N;j++){
+      const dx=bx[j]-bx[i],dy=by[j]-by[i],d=Math.sqrt(dx*dx+dy*dy);
+      if(d<br[i]+br[j]&&d>0.01){
+        const nx=dx/d,ny=dy/d;
+        const rv=(bvx[i]-bvx[j])*nx+(bvy[i]-bvy[j])*ny;
+        if(rv>0){bvx[i]-=rv*nx;bvy[i]-=rv*ny;bvx[j]+=rv*nx;bvy[j]+=rv*ny;}
+      }
+    }
+    bhue[i]=(bhue[i]+0.3)%360;
+    const g=ctx.createRadialGradient(bx[i]-br[i]*0.3,by[i]-br[i]*0.3,1,bx[i],by[i],br[i]*1.4);
+    g.addColorStop(0,`hsla(${bhue[i]},100%,85%,0.9)`);
+    g.addColorStop(0.5,`hsla(${bhue[i]},100%,55%,0.8)`);
+    g.addColorStop(1,'transparent');
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(bx[i],by[i],br[i]*1.4,0,Math.PI*2);ctx.fill();
+  }
+  requestAnimationFrame(draw);
+}
+init();draw();
+
+</script>
+</body></html>
+)EOF";
+
+static const char NEONRAIN_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NEON RAIN · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #00ff88;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#00ff88;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>NEON RAIN</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+const COLS2=Math.ceil(innerWidth/10)||40;
+const streams2=[];
+const SYM='@#%&*!?+=-~<>^[]{}|/\\';
+for(let i=0;i<COLS2;i++)streams2.push({x:i*10,y:-Math.random()*400,speed:0.6+Math.random()*1.8,
+  color:Math.random()<0.7?[0,255,80+Math.floor(Math.random()*60)]:[0,100+Math.floor(Math.random()*80),255],
+  sym:SYM[Math.floor(Math.random()*SYM.length)]});
+let t2=0;
+function draw(){
+  t2+=1;
+  ctx.fillStyle='rgba(0,0,0,0.15)';ctx.fillRect(0,0,W,H);
+  streams2.forEach(s=>{
+    const [r,g,b]=s.color;
+    ctx.fillStyle=`rgb(${r},${g},${b})`;
+    ctx.font='bold 9px monospace';ctx.fillText(s.sym,s.x,s.y);
+    s.y+=s.speed;
+    if(t2%7===0)s.sym=SYM[Math.floor(Math.random()*SYM.length)];
+    if(s.y>H+10){s.y=-Math.random()*200;s.speed=0.6+Math.random()*1.8;}
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script>
+</body></html>
+)EOF";
+
+static const char DNA_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DNA HELIX · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #ff66aa;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#ff66aa;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>DNA HELIX</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+let t=0;
+function draw(){
+  t+=0.03;
+  ctx.fillStyle='rgba(0,0,0,0.2)';ctx.fillRect(0,0,W,H);
+  const cx=W/2,amp=Math.min(W,H)*0.3;
+  const N=60,step=H/N;
+  const pts1=[],pts2=[];
+  for(let i=0;i<N;i++){
+    const y=i*step,phase=i*0.22+t;
+    pts1.push([cx+Math.cos(phase)*amp, y]);
+    pts2.push([cx+Math.cos(phase+Math.PI)*amp, y]);
+  }
+  // rungs
+  for(let i=0;i<N;i+=3){
+    const [x1,y1]=pts1[i],[x2,y2]=pts2[i];
+    const hue=(i*6+t*30)%360;
+    ctx.strokeStyle=`hsla(${hue|0},100%,65%,0.55)`;ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
+    ctx.fillStyle=`hsla(${hue|0},100%,80%,0.9)`;
+    ctx.beginPath();ctx.arc(x1,y1,4,0,Math.PI*2);ctx.fill();
+    ctx.beginPath();ctx.arc(x2,y2,4,0,Math.PI*2);ctx.fill();
+  }
+  // strands
+  [[pts1,'#ff44aa'],[pts2,'#44aaff']].forEach(([pts,col])=>{
+    ctx.strokeStyle=col;ctx.lineWidth=3;ctx.shadowColor=col;ctx.shadowBlur=8;
+    ctx.beginPath();pts.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.stroke();
+    ctx.shadowBlur=0;
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script>
+</body></html>
+)EOF";
+
+static const char SANDFALL_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SAND FALL · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #ffcc44;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#ffcc44;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>SAND FALL</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+const SC=3;let GW,GH,grid,grid2;
+function init(){GW=W/SC|0;GH=H/SC|0;grid=new Uint8Array(GW*GH);grid2=new Uint8Array(GW*GH);}
+function idx(x,y){return y*GW+x;}
+let t=0;
+function update(){
+  // spawn sand at top
+  for(let i=0;i<4;i++){const x=GW*0.1+Math.random()*GW*0.8|0;if(grid[idx(x,0)]==0)grid[idx(x,0)]=1+Math.floor(Math.random()*4);}
+  grid2.fill(0);
+  for(let y=GH-2;y>=0;y--){for(let x=0;x<GW;x++){
+    const c=grid[idx(x,y)];if(!c)continue;
+    if(!grid[idx(x,y+1)]){grid2[idx(x,y+1)]=c;}
+    else{const d=Math.random()<0.5?-1:1;
+      if(x+d>=0&&x+d<GW&&!grid[idx(x+d,y+1)])grid2[idx(x+d,y+1)]=c;
+      else grid2[idx(x,y)]=c;}
+  }}
+  grid.set(grid2);
+  t++;if(t>400){grid.fill(0);t=0;}
+}
+const COLS3=['#ffdd44','#ffaa22','#ff8800','#cc6600','#ffee88'];
+function draw(){
+  ctx.fillStyle='#0a0500';ctx.fillRect(0,0,W,H);
+  for(let y=0;y<GH;y++)for(let x=0;x<GW;x++){
+    const c=grid[idx(x,y)];if(c){ctx.fillStyle=COLS3[c-1];ctx.fillRect(x*SC,y*SC,SC,SC);}
+  }
+  update();requestAnimationFrame(draw);
+}
+init();draw();
+
+</script>
+</body></html>
+)EOF";
+
+static const char ACIDSPIRAL_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ACID SPIRAL · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #ff00ff;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#ff00ff;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>ACID SPIRAL</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+let t=0;
+function draw(){
+  t+=0.03;
+  ctx.fillStyle='rgba(0,0,0,0.08)';ctx.fillRect(0,0,W,H);
+  const cx=W/2,cy=H/2;
+  for(let arm=0;arm<5;arm++){
+    const armOff=arm*Math.PI*2/5;
+    for(let i=0;i<200;i++){
+      const theta=i*0.12+t+armOff;
+      const r=i*Math.min(W,H)*0.0013;
+      const x=cx+Math.cos(theta)*r*Math.min(W,H)*0.45;
+      const y=cy+Math.sin(theta)*r*Math.min(W,H)*0.45;
+      const hue=(i*2.5+t*60+arm*72)%360;
+      const sz=1+Math.sin(i*0.18+t*3)*1.5;
+      ctx.fillStyle=`hsla(${hue|0},100%,65%,0.7)`;
+      ctx.beginPath();ctx.arc(x,y,sz,0,Math.PI*2);ctx.fill();
+    }
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script>
+</body></html>
+)EOF";
+
+static const char PLASMAGLOBE_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PLASMA GLOBE · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #ff8800;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#ff8800;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>PLASMA GLOBE</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+const S2=4;let IW2,IH2,ofc2,octx2;
+function init(){IW2=W/S2|0;IH2=H/S2|0;ofc2=new OffscreenCanvas(IW2,IH2);octx2=ofc2.getContext('2d');}
+// tendrils
+const TD=8;const tseeds=Array.from({length:TD},(_,i)=>({a:i*Math.PI*2/TD,spd:0.4+Math.random()*0.6}));
+let t=0;
+function draw(){
+  t+=0.025;
+  ctx.fillStyle='rgba(0,0,0,0.25)';ctx.fillRect(0,0,W,H);
+  const cx=W/2,cy=H/2,glob=Math.min(W,H)*0.14;
+  // tendrils
+  tseeds.forEach((td,k)=>{
+    td.a+=td.spd*0.015;
+    const pts=[];
+    for(let s=0;s<40;s++){
+      const frac=s/39;
+      const r=glob+frac*(Math.min(W,H)*0.38);
+      const wob=Math.sin(t*3+k+s*0.4)*0.35;
+      const a=td.a+wob*frac;
+      pts.push([cx+Math.cos(a)*r,cy+Math.sin(a)*r]);
+    }
+    const hue=(k*42+t*25)%360;
+    ctx.strokeStyle=`hsla(${hue|0},100%,70%,0.6)`;ctx.lineWidth=2;
+    ctx.shadowColor=`hsla(${hue|0},100%,70%,1)`;ctx.shadowBlur=10;
+    ctx.beginPath();pts.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.stroke();
+    ctx.shadowBlur=0;
+  });
+  // globe
+  const gg=ctx.createRadialGradient(cx,cy,0,cx,cy,glob);
+  gg.addColorStop(0,'rgba(255,255,255,0.9)');gg.addColorStop(0.3,`rgba(180,120,255,0.6)`);gg.addColorStop(1,'rgba(80,40,120,0.2)');
+  ctx.fillStyle=gg;ctx.beginPath();ctx.arc(cx,cy,glob,0,Math.PI*2);ctx.fill();
+  ctx.strokeStyle='rgba(200,180,255,0.5)';ctx.lineWidth=2;ctx.beginPath();ctx.arc(cx,cy,glob,0,Math.PI*2);ctx.stroke();
+  requestAnimationFrame(draw);
+}
+init();draw();
+
+</script>
+</body></html>
+)EOF";
+
+static const char WARPGRID_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WARP GRID · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #00ccff;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#00ccff;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>WARP GRID</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+let t=0;
+const GX=24,GY=18;
+function draw(){
+  t+=0.025;
+  ctx.fillStyle='rgba(0,0,10,0.3)';ctx.fillRect(0,0,W,H);
+  function pt(gx,gy){
+    const nx=gx/GX*2-1,ny=gy/GY*2-1;
+    const d=Math.sqrt(nx*nx+ny*ny);
+    const wave=Math.sin(d*4-t*3)*0.15;
+    const twist=Math.sin(t*0.8+d)*0.2;
+    const sx=nx+wave*Math.cos(t+gy)+twist*ny;
+    const sy=ny+wave*Math.sin(t+gx)-twist*nx;
+    return[(sx*0.45+0.5)*W,(sy*0.45+0.5)*H];
+  }
+  for(let gy=0;gy<=GY;gy++){
+    const hue=(gy/GY*120+t*20)%360;
+    ctx.strokeStyle=`hsla(${hue|0},100%,60%,0.65)`;ctx.lineWidth=1;
+    ctx.beginPath();
+    for(let gx=0;gx<=GX;gx++){const[x,y]=pt(gx,gy);gx?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.stroke();
+  }
+  for(let gx=0;gx<=GX;gx++){
+    const hue=(gx/GX*120+180+t*20)%360;
+    ctx.strokeStyle=`hsla(${hue|0},100%,60%,0.65)`;ctx.lineWidth=1;
+    ctx.beginPath();
+    for(let gy=0;gy<=GY;gy++){const[x,y]=pt(gx,gy);gy?ctx.lineTo(x,y):ctx.moveTo(x,y);}ctx.stroke();
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script>
+</body></html>
+)EOF";
+
+static const char NEBULA_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>NEBULA · COSMIC-C3</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);
+  border-bottom:1px solid #ff44ff;padding:5px 10px;display:flex;
+  justify-content:space-between;font-size:11px;z-index:9}
+.nav a{{color:#ff44ff;text-decoration:none}}
+canvas{display:block}
+</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>NEBULA</span></div>
+<canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c');
+const ctx=C.getContext('2d');
+let W,H;
+function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();init&&init();});
+resize();
+
+const S3=3;let IW3,IH3,ofc3,octx3;
+function init(){IW3=W/S3|0;IH3=H/S3|0;ofc3=new OffscreenCanvas(IW3,IH3);octx3=ofc3.getContext('2d');}
+const NS=80;const nx_=new Float32Array(NS),ny_=new Float32Array(NS),nbr=new Float32Array(NS);
+for(let i=0;i<NS;i++){nx_[i]=Math.random();ny_[i]=Math.random();nbr[i]=60+Math.random()*195;}
+let t=0;
+function draw(){
+  t+=0.018;
+  const id=octx3.createImageData(IW3,IH3);const d=id.data;
+  for(let y=0;y<IH3;y++)for(let x=0;x<IW3;x++){
+    const fx=x/IW3,fy=y/IH3;
+    let r=0,g=0,b=0;
+    for(let s=0;s<NS;s++){
+      const dx=(fx-nx_[s])*2.5,dy=(fy-ny_[s])*2;
+      const dist=Math.sqrt(dx*dx+dy*dy)+0.001;
+      const hue=(s*137.5+t*20)%360;
+      const c=Math.max(0,nbr[s]/(dist*dist*400)-0.01);
+      r+=c*Math.sin(hue/57.3)*127;g+=c*Math.sin((hue+120)/57.3)*127;b+=c*Math.sin((hue+240)/57.3)*127;
+    }
+    const idx2=(y*IW3+x)*4;
+    d[idx2]=Math.min(255,r+30)|0;d[idx2+1]=Math.min(255,g+10)|0;d[idx2+2]=Math.min(255,b+40)|0;d[idx2+3]=255;
+  }
+  octx3.putImageData(id,0,0);
+  ctx.drawImage(ofc3,0,0,W,H);
+  // foreground stars
+  for(let i=0;i<NS;i++){
+    const sx=nx_[i]*W,sy=ny_[i]*H;
+    const tw=0.5+Math.sin(t*2+i)*0.5;
+    ctx.fillStyle=`rgba(255,255,255,${tw*0.8})`;
+    ctx.beginPath();ctx.arc(sx,sy,1+tw,0,Math.PI*2);ctx.fill();
+  }
+  requestAnimationFrame(draw);
+}
+init();draw();
+
+</script>
+</body></html>
+)EOF";
+
+void handleSnake()      { server.send(200, "text/html", SNAKE_HTML);      }
+void handleFireworks() { server.send(200, "text/html", FIREWORKS_HTML); }
+void handleCoral() { server.send(200, "text/html", CORAL_HTML); }
+void handleCwaves() { server.send(200, "text/html", CWAVES_HTML); }
+void handleDeepstars() { server.send(200, "text/html", DEEPSTARS_HTML); }
+void handleFlowfield() { server.send(200, "text/html", FLOWFIELD_HTML); }
+void handleMetaballs() { server.send(200, "text/html", METABALLS_HTML); }
+void handleGoop() { server.send(200, "text/html", GOOP_HTML); }
+void handleWormhole() { server.send(200, "text/html", WORMHOLE_HTML); }
+void handleCrystal() { server.send(200, "text/html", CRYSTAL_HTML); }
+void handleLightning() { server.send(200, "text/html", LIGHTNING_HTML); }
+void handleBounceballs() { server.send(200, "text/html", BOUNCEBALLS_HTML); }
+void handleNeonrain() { server.send(200, "text/html", NEONRAIN_HTML); }
+void handleDna() { server.send(200, "text/html", DNA_HTML); }
+void handleSandfall() { server.send(200, "text/html", SANDFALL_HTML); }
+void handleAcidspiral() { server.send(200, "text/html", ACIDSPIRAL_HTML); }
+void handlePlasmaglobe() { server.send(200, "text/html", PLASMAGLOBE_HTML); }
+void handleWarpgrid() { server.send(200, "text/html", WARPGRID_HTML); }
+void handleNebula() { server.send(200, "text/html", NEBULA_HTML); }
 
 
 // Redirect everything unknown → captive portal index
@@ -2285,6 +3560,26 @@ void setup() {
     server.on("/dragon",      HTTP_GET, handleDragon);
     server.on("/lava2",       HTTP_GET, handleLava2);
     server.on("/noise",       HTTP_GET, handleNoise);
+    server.on("/snake",       HTTP_GET, handleSnake);
+    server.on("/fireworks", HTTP_GET, handleFireworks);
+    server.on("/coral", HTTP_GET, handleCoral);
+    server.on("/cwaves", HTTP_GET, handleCwaves);
+    server.on("/deepstars", HTTP_GET, handleDeepstars);
+    server.on("/flowfield", HTTP_GET, handleFlowfield);
+    server.on("/metaballs", HTTP_GET, handleMetaballs);
+    server.on("/goop", HTTP_GET, handleGoop);
+    server.on("/wormhole", HTTP_GET, handleWormhole);
+    server.on("/crystal", HTTP_GET, handleCrystal);
+    server.on("/lightning", HTTP_GET, handleLightning);
+    server.on("/bounceballs", HTTP_GET, handleBounceballs);
+    server.on("/neonrain", HTTP_GET, handleNeonrain);
+    server.on("/dna", HTTP_GET, handleDna);
+    server.on("/sandfall", HTTP_GET, handleSandfall);
+    server.on("/acidspiral", HTTP_GET, handleAcidspiral);
+    server.on("/plasmaglobe", HTTP_GET, handlePlasmaglobe);
+    server.on("/warpgrid", HTTP_GET, handleWarpgrid);
+    server.on("/nebula", HTTP_GET, handleNebula);
+
     server.on("/favicon.ico", HTTP_GET, []() { server.send(404, "text/plain", ""); });
     server.onNotFound(handleRedirect);
     server.begin();
