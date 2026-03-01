@@ -266,6 +266,97 @@ footer{margin-top:16px;font-size:.4rem;letter-spacing:4px;color:rgba(255,255,255
   </a>
 </div>
 
+<div class="cat">&#x25C6; MATHEMATICS DEEP</div>
+<div class="grid">
+  <a class="card c5" href="/apollonian">
+    <span class="icon">&#x25CB;</span>
+    <span class="name n5">APOLLONIAN</span>
+    <span class="desc">CIRCLE PACKING &middot; DESCARTES</span>
+  </a>
+  <a class="card c2" href="/sunflower">
+    <span class="icon">&#x1F33B;</span>
+    <span class="name n2">SUNFLOWER</span>
+    <span class="desc">PHYLLOTAXIS &middot; GOLDEN RATIO</span>
+  </a>
+  <a class="card cA" href="/quasicrystal">
+    <span class="icon">&#x2736;</span>
+    <span class="name nA">QUASICRYSTAL</span>
+    <span class="desc">ROTATED WAVES &middot; INTERFERENCE</span>
+  </a>
+  <a class="card cC" href="/lorenz">
+    <span class="icon">&#x1F98B;</span>
+    <span class="name nC">LORENZ</span>
+    <span class="desc">BUTTERFLY ATTRACTOR &middot; CHAOS</span>
+  </a>
+  <a class="card c9" href="/mandelbrot">
+    <span class="icon">&#x2665;</span>
+    <span class="name n9">MANDELBROT</span>
+    <span class="desc">COMPLEX PLANE &middot; COLOR CYCLE</span>
+  </a>
+</div>
+
+<div class="cat">&#x25C6; 3D WORLDS</div>
+<div class="grid">
+  <a class="card cF" href="/cube3d">
+    <span class="icon">&#x2B1C;</span>
+    <span class="name nF">CUBE 3D</span>
+    <span class="desc">WIREFRAME &middot; CUBE + ICOSAHEDRON</span>
+  </a>
+  <a class="card c7" href="/torus">
+    <span class="icon">&#x25EF;</span>
+    <span class="name n7">TORUS</span>
+    <span class="desc">3D DONUT &middot; PERSPECTIVE WIRE</span>
+  </a>
+  <a class="card c3" href="/hypercube">
+    <span class="icon">&#x2B1B;</span>
+    <span class="name n3">HYPERCUBE</span>
+    <span class="desc">4D TESSERACT &middot; DUAL ROTATION</span>
+  </a>
+</div>
+
+<div class="cat">&#x25C6; GENERATIVE LIFE</div>
+<div class="grid">
+  <a class="card c1" href="/reaction">
+    <span class="icon">&#x1F9EA;</span>
+    <span class="name n1">REACTION</span>
+    <span class="desc">GRAY-SCOTT &middot; TURING PATTERNS</span>
+  </a>
+  <a class="card c8" href="/maze">
+    <span class="icon">&#x2796;</span>
+    <span class="name n8">MAZE</span>
+    <span class="desc">DFS CARVE &middot; ANIMATED BUILD</span>
+  </a>
+  <a class="card c6" href="/vines">
+    <span class="icon">&#x1F343;</span>
+    <span class="name n6">VINES</span>
+    <span class="desc">BRANCHING GROWTH &middot; LEAVES</span>
+  </a>
+  <a class="card cD" href="/snowflakes">
+    <span class="icon">&#x2744;</span>
+    <span class="name nD">SNOWFLAKES</span>
+    <span class="desc">PROCEDURAL CRYSTAL &middot; FALLING</span>
+  </a>
+  <a class="card cB" href="/cityflow">
+    <span class="icon">&#x1F3D9;</span>
+    <span class="name nB">CITY FLOW</span>
+    <span class="desc">GRID CITY &middot; TRAFFIC LIGHTS</span>
+  </a>
+</div>
+
+<div class="cat">&#x25C6; REFLECTIONS</div>
+<div class="grid">
+  <a class="card cE" href="/retrogeo">
+    <span class="icon">&#x25B2;</span>
+    <span class="name nE">RETRO GEO</span>
+    <span class="desc">80s SHAPES &middot; NEON SCAN LINES</span>
+  </a>
+  <a class="card c4" href="/mirrorblob">
+    <span class="icon">&#x1F300;</span>
+    <span class="name n4">MIRROR BLOB</span>
+    <span class="desc">4-WAY SYMMETRY &middot; ORGANIC</span>
+  </a>
+</div>
+
 <div class="cat">&#x25C6; GAMES</div>
 <div class="grid">
   <a class="card c1" href="/snake">
@@ -381,7 +472,7 @@ footer{margin-top:16px;font-size:.4rem;letter-spacing:4px;color:rgba(255,255,255
   </a>
 </div>
 
-<footer>esp32-c3 super mini &middot; wifi ap &middot; 192.168.4.1 &middot; 53 modes</footer>
+<footer>esp32-c3 super mini &middot; wifi ap &middot; 192.168.4.1 &middot; 68 modes</footer>
 </body></html>
 )EOF";
 
@@ -3485,7 +3576,805 @@ init();draw();
 </body></html>
 )EOF";
 
+static const char APOLLONIAN_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>APOLLONIAN · COSMIC-C3</title><style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);border-bottom:1px solid #ff8844;padding:5px 10px;display:flex;justify-content:space-between;font-size:11px;z-index:9}.nav a{color:#ff8844;text-decoration:none}
+canvas{display:block}</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>APOLLONIAN</span></div><canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c'),ctx=C.getContext('2d');
+let W,H;function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();if(typeof init==='function')init();});
+resize();
+
+const circles=[];const MAXK=350;
+function csqrt(re,im){const r=Math.sqrt(Math.sqrt(re*re+im*im)),t=Math.atan2(im,re)/2;return[r*Math.cos(t),r*Math.sin(t)];}
+function findNew(c1,c2,c3){
+  const[k1,x1,y1]=c1,[k2,x2,y2]=c2,[k3,x3,y3]=c3;
+  const disc=k1*k2+k2*k3+k3*k1;if(disc<0)return null;
+  const k4=k1+k2+k3+2*Math.sqrt(disc);if(k4<=0||k4>MAXK)return null;
+  const[sqr,sqi]=csqrt(k1*k2*(x1*x2-y1*y2)+k2*k3*(x2*x3-y2*y3)+k3*k1*(x3*x1-y3*y1),
+                        k1*k2*(x1*y2+x2*y1)+k2*k3*(x2*y3+x3*y2)+k3*k1*(x3*y1+x1*y3));
+  const nr=(k1*x1+k2*x2+k3*x3+2*sqr)/k4,ni=(k1*y1+k2*y2+k3*y3+2*sqi)/k4;
+  if(Math.sqrt(nr*nr+ni*ni)+1/k4>1.04)return null;
+  return[k4,nr,ni];
+}
+function build(){
+  circles.length=0;
+  const k3i=1+2/Math.sqrt(3),d=1-1/k3i;
+  const outer=[-1,0,0],a=[k3i,d,0],b=[k3i,d*Math.cos(2.094),d*Math.sin(2.094)],c=[k3i,d*Math.cos(4.189),d*Math.sin(4.189)];
+  circles.push(outer,a,b,c);
+  const queue=[[outer,a,b],[outer,b,c],[outer,c,a],[a,b,c]];
+  const seen=new Set();
+  for(let qi=0;qi<queue.length&&circles.length<560;qi++){
+    const[c1,c2,c3]=queue[qi];const nc=findNew(c1,c2,c3);if(!nc)continue;
+    const key=nc[0].toFixed(1)+','+nc[1].toFixed(3)+','+nc[2].toFixed(3);
+    if(seen.has(key))continue;seen.add(key);circles.push(nc);
+    if(nc[0]<MAXK*0.7)queue.push([c1,c2,nc],[c1,c3,nc],[c2,c3,nc]);
+  }
+}
+let t=0;
+function draw(){
+  t+=0.012;ctx.fillStyle='rgba(0,0,0,0.1)';ctx.fillRect(0,0,W,H);
+  const R=Math.min(W,H)*0.46,cx=W/2,cy=H/2;
+  circles.forEach(([k,x,y])=>{
+    if(k<0){ctx.strokeStyle='rgba(150,100,255,0.35)';ctx.lineWidth=2;ctx.beginPath();ctx.arc(cx,cy,R,0,Math.PI*2);ctx.stroke();return;}
+    const r=R/k,px=cx+x*R,py=cy+y*R,hue=(Math.log(k)*60+t*25)%360;
+    ctx.fillStyle=`hsla(${hue|0},100%,65%,${Math.min(1,r/3+0.3)})`;
+    ctx.beginPath();ctx.arc(px,py,Math.max(0.8,r),0,Math.PI*2);ctx.fill();
+    if(r>3){ctx.strokeStyle=`hsla(${hue|0},100%,88%,0.35)`;ctx.lineWidth=0.5;ctx.stroke();}
+  });
+  requestAnimationFrame(draw);
+}
+build();draw();
+
+</script></body></html>
+)EOF";
+
+static const char SUNFLOWER_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SUNFLOWER · COSMIC-C3</title><style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);border-bottom:1px solid #ffdd00;padding:5px 10px;display:flex;justify-content:space-between;font-size:11px;z-index:9}.nav a{color:#ffdd00;text-decoration:none}
+canvas{display:block}</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>SUNFLOWER</span></div><canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c'),ctx=C.getContext('2d');
+let W,H;function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();if(typeof init==='function')init();});
+resize();
+
+const N=900;let t=0;
+function draw(){
+  t+=0.02;ctx.fillStyle='rgba(0,0,0,0.1)';ctx.fillRect(0,0,W,H);
+  const cx=W/2,cy=H/2,sc=Math.min(W,H)*0.47/Math.sqrt(N);
+  for(let i=0;i<N;i++){
+    const theta=i*2.39996317;const r=Math.sqrt(i)*sc;
+    const x=cx+r*Math.cos(theta),y=cy+r*Math.sin(theta);
+    const hue=(i*0.4+t*20)%360,pulse=0.5+0.5*Math.sin(t*2+i*0.05);
+    ctx.fillStyle=`hsla(${hue|0},100%,${50+pulse*30}%,0.85)`;
+    ctx.beginPath();ctx.arc(x,y,1.5+pulse*2,0,Math.PI*2);ctx.fill();
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script></body></html>
+)EOF";
+
+static const char QUASICRYSTAL_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>QUASICRYSTAL · COSMIC-C3</title><style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);border-bottom:1px solid #88ffff;padding:5px 10px;display:flex;justify-content:space-between;font-size:11px;z-index:9}.nav a{color:#88ffff;text-decoration:none}
+canvas{display:block}</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>QUASICRYSTAL</span></div><canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c'),ctx=C.getContext('2d');
+let W,H;function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();if(typeof init==='function')init();});
+resize();
+
+const S=4;let IW,IH,ofc,octx;
+const NWAVES=5;
+function init(){IW=W/S|0;IH=H/S|0;ofc=new OffscreenCanvas(IW,IH);octx=ofc.getContext('2d');}
+let t=0;
+function draw(){
+  t+=0.018;
+  const id=octx.createImageData(IW,IH);const d=id.data;
+  for(let py=0;py<IH;py++)for(let px=0;px<IW;px++){
+    let sum=0;
+    for(let k=0;k<NWAVES;k++){const a=k*Math.PI/NWAVES;sum+=Math.cos(Math.cos(a)*px*0.11+Math.sin(a)*py*0.11+t);}
+    const n=(sum/NWAVES+1)/2;
+    const hue=(n*360+t*30)%360;
+    const i=(py*IW+px)*4;
+    d[i]=Math.sin(hue/57.3)*127+128|0;d[i+1]=Math.sin((hue+120)/57.3)*127+128|0;
+    d[i+2]=Math.sin((hue+240)/57.3)*127+128|0;d[i+3]=255;
+  }
+  octx.putImageData(id,0,0);ctx.drawImage(ofc,0,0,W,H);
+  requestAnimationFrame(draw);
+}
+init();draw();
+
+</script></body></html>
+)EOF";
+
+static const char LORENZ_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LORENZ · COSMIC-C3</title><style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);border-bottom:1px solid #00ffdd;padding:5px 10px;display:flex;justify-content:space-between;font-size:11px;z-index:9}.nav a{color:#00ffdd;text-decoration:none}
+canvas{display:block}</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>LORENZ</span></div><canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c'),ctx=C.getContext('2d');
+let W,H;function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();if(typeof init==='function')init();});
+resize();
+
+let lx=0.1,ly=0,lz=0;
+const sig=10,rho=28,beta=2.667;
+const pts=[];const MAXPTS=3500;
+let t=0;
+function init(){pts.length=0;lx=0.1+Math.random()*0.1;ly=0;lz=0;}
+function draw(){
+  t+=0.016;
+  for(let s=0;s<10;s++){
+    const dt=0.005;
+    const dx=sig*(ly-lx),dy=lx*(rho-lz)-ly,dz=lx*ly-beta*lz;
+    lx+=dx*dt;ly+=dy*dt;lz+=dz*dt;
+    pts.push([lx,lz]);if(pts.length>MAXPTS)pts.shift();
+  }
+  ctx.fillStyle='rgba(0,0,8,0.12)';ctx.fillRect(0,0,W,H);
+  const cx=W/2,cy=H/2,sc=Math.min(W,H)/(rho*1.9);
+  for(let i=1;i<pts.length;i++){
+    const[x1,z1]=pts[i-1],[x2,z2]=pts[i];
+    const hue=(i/MAXPTS*280+t*20)%360;
+    ctx.strokeStyle=`hsla(${hue|0},100%,65%,0.65)`;ctx.lineWidth=1;
+    ctx.beginPath();ctx.moveTo(cx+x1*sc,cy+(z1-rho/2)*sc);ctx.lineTo(cx+x2*sc,cy+(z2-rho/2)*sc);ctx.stroke();
+  }
+  requestAnimationFrame(draw);
+}
+init();draw();
+
+</script></body></html>
+)EOF";
+
+static const char MANDELBROT_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MANDELBROT · COSMIC-C3</title><style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);border-bottom:1px solid #ffaaff;padding:5px 10px;display:flex;justify-content:space-between;font-size:11px;z-index:9}.nav a{color:#ffaaff;text-decoration:none}
+canvas{display:block}</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>MANDELBROT</span></div><canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c'),ctx=C.getContext('2d');
+let W,H;function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();if(typeof init==='function')init();});
+resize();
+
+const S=5;let IW,IH,ofc,octx,iters=null;
+const MAXIT=64;
+function init(){
+  IW=W/S|0;IH=H/S|0;ofc=new OffscreenCanvas(IW,IH);octx=ofc.getContext('2d');
+  iters=new Float32Array(IW*IH);
+  const zoom=2.6,cxm=-0.7,cyi=0.0;const sc=zoom/Math.min(IW,IH);
+  for(let py=0;py<IH;py++)for(let px=0;px<IW;px++){
+    const c0r=cxm+(px-IW/2)*sc,c0i=cyi+(py-IH/2)*sc;
+    let zr=0,zi=0,it=0;
+    while(zr*zr+zi*zi<4&&it<MAXIT){const tr=zr*zr-zi*zi+c0r;zi=2*zr*zi+c0i;zr=tr;it++;}
+    iters[py*IW+px]=it===MAXIT?-1:it+1-Math.log2(Math.log2(Math.sqrt(zr*zr+zi*zi)));
+  }
+}
+let t=0;
+function draw(){
+  t+=0.35;
+  if(iters){
+    const id=octx.createImageData(IW,IH);const d=id.data;
+    for(let i=0;i<iters.length;i++){
+      const n=iters[i];const idx=i*4;
+      if(n<0){d[idx+3]=255;continue;}
+      const hue=(n/MAXIT*360+t)%360;
+      d[idx]=Math.sin(hue/57.3)*127+128|0;d[idx+1]=Math.sin((hue+120)/57.3)*127+128|0;
+      d[idx+2]=Math.sin((hue+240)/57.3)*127+128|0;d[idx+3]=255;
+    }
+    octx.putImageData(id,0,0);ctx.drawImage(ofc,0,0,W,H);
+  }
+  requestAnimationFrame(draw);
+}
+init();draw();
+
+</script></body></html>
+)EOF";
+
+static const char REACTION_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>REACTION · COSMIC-C3</title><style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);border-bottom:1px solid #44ffaa;padding:5px 10px;display:flex;justify-content:space-between;font-size:11px;z-index:9}.nav a{color:#44ffaa;text-decoration:none}
+canvas{display:block}</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>REACTION</span></div><canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c'),ctx=C.getContext('2d');
+let W,H;function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();if(typeof init==='function')init();});
+resize();
+
+const GW=100,GH=75;
+const Du=0.2097,Dv=0.105,F=0.055,K=0.062;
+let u,v,nu,nv,ofc,octx;
+function init(){
+  u=new Float32Array(GW*GH);v=new Float32Array(GW*GH);
+  nu=new Float32Array(GW*GH);nv=new Float32Array(GW*GH);
+  ofc=new OffscreenCanvas(GW,GH);octx=ofc.getContext('2d');
+  u.fill(1);
+  for(let i=0;i<10;i++){
+    const x=Math.random()*GW|0,y=Math.random()*GH|0;
+    for(let dy=-3;dy<=3;dy++)for(let dx=-3;dx<=3;dx++){
+      const nx=(x+dx+GW)%GW,ny=(y+dy+GH)%GH;
+      u[ny*GW+nx]=0.5;v[ny*GW+nx]=0.25+Math.random()*0.5;
+    }
+  }
+}
+function step(){
+  for(let y=0;y<GH;y++)for(let x=0;x<GW;x++){
+    const i=y*GW+x;
+    const xm=(x-1+GW)%GW,xp=(x+1)%GW,ym=(y-1+GH)%GH,yp=(y+1)%GH;
+    const lapu=u[y*GW+xm]+u[y*GW+xp]+u[ym*GW+x]+u[yp*GW+x]-4*u[i];
+    const lapv=v[y*GW+xm]+v[y*GW+xp]+v[ym*GW+x]+v[yp*GW+x]-4*v[i];
+    const uvv=u[i]*v[i]*v[i];
+    nu[i]=Math.max(0,Math.min(1,u[i]+Du*lapu-uvv+F*(1-u[i])));
+    nv[i]=Math.max(0,Math.min(1,v[i]+Dv*lapv+uvv-(F+K)*v[i]));
+  }
+  let tmp;tmp=u;u=nu;nu=tmp;tmp=v;v=nv;nv=tmp;
+}
+let t=0;
+function draw(){
+  t++;step();step();
+  const id=octx.createImageData(GW,GH);const d=id.data;
+  for(let i=0;i<GW*GH;i++){
+    const vi=v[i];
+    d[i*4]=vi>0.5?((vi-0.5)*510)|0:0;
+    d[i*4+1]=Math.min(255,vi*400)|0;
+    d[i*4+2]=Math.max(0,255-vi*500)|0;
+    d[i*4+3]=255;
+  }
+  octx.putImageData(id,0,0);ctx.drawImage(ofc,0,0,W,H);
+  if(t>700){t=0;init();}
+  requestAnimationFrame(draw);
+}
+init();draw();
+
+</script></body></html>
+)EOF";
+
+static const char MAZE_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MAZE · COSMIC-C3</title><style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);border-bottom:1px solid #00aaff;padding:5px 10px;display:flex;justify-content:space-between;font-size:11px;z-index:9}.nav a{color:#00aaff;text-decoration:none}
+canvas{display:block}</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>MAZE</span></div><canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c'),ctx=C.getContext('2d');
+let W,H;function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();if(typeof init==='function')init();});
+resize();
+
+const MW=40,MH=30;
+let walls,visited,stack,carving;
+function init(){
+  walls=new Uint8Array(MW*MH).fill(0xF);
+  visited=new Uint8Array(MW*MH);
+  stack=[];carving=true;
+  const sx=MW/2|0,sy=MH/2|0;
+  visited[sy*MW+sx]=1;stack.push([sx,sy]);
+}
+function carveStep(){
+  if(!stack.length){carving=false;return;}
+  const[cx,cy]=stack[stack.length-1];
+  const nb=[];
+  if(cy>0&&!visited[(cy-1)*MW+cx])nb.push([cx,cy-1,0,4]);
+  if(cx<MW-1&&!visited[cy*MW+cx+1])nb.push([cx+1,cy,2,8]);
+  if(cy<MH-1&&!visited[(cy+1)*MW+cx])nb.push([cx,cy+1,4,1]);
+  if(cx>0&&!visited[cy*MW+cx-1])nb.push([cx-1,cy,8,2]);
+  if(!nb.length){stack.pop();return;}
+  const[nx,ny,wc,wn]=nb[Math.random()*nb.length|0];
+  walls[cy*MW+cx]&=~wc;walls[ny*MW+nx]&=~wn;
+  visited[ny*MW+nx]=1;stack.push([nx,ny]);
+}
+let t=0;
+function draw(){
+  t++;if(carving)for(let s=0;s<4;s++)carveStep();
+  ctx.fillStyle='#000';ctx.fillRect(0,0,W,H);
+  const cw=W/MW,ch=H/MH;
+  ctx.strokeStyle='#0088ff';ctx.lineWidth=1.5;
+  for(let y=0;y<MH;y++)for(let x=0;x<MW;x++){
+    const w=walls[y*MW+x],px=x*cw,py=y*ch;
+    if(w&1){ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(px+cw,py);ctx.stroke();}
+    if(w&2){ctx.beginPath();ctx.moveTo(px+cw,py);ctx.lineTo(px+cw,py+ch);ctx.stroke();}
+    if(w&4){ctx.beginPath();ctx.moveTo(px,py+ch);ctx.lineTo(px+cw,py+ch);ctx.stroke();}
+    if(w&8){ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(px,py+ch);ctx.stroke();}
+  }
+  if(stack.length){
+    const[cx,cy]=stack[stack.length-1];
+    ctx.fillStyle='rgba(0,255,120,0.55)';ctx.fillRect(cx*cw+2,cy*ch+2,cw-4,ch-4);
+  }
+  if(!carving&&t%280===0)init();
+  requestAnimationFrame(draw);
+}
+init();draw();
+
+</script></body></html>
+)EOF";
+
+static const char VINES_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>VINES · COSMIC-C3</title><style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);border-bottom:1px solid #44ff88;padding:5px 10px;display:flex;justify-content:space-between;font-size:11px;z-index:9}.nav a{color:#44ff88;text-decoration:none}
+canvas{display:block}</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>VINES</span></div><canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c'),ctx=C.getContext('2d');
+let W,H;function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();if(typeof init==='function')init();});
+resize();
+
+const segs=[];
+function branch(x,y,angle,len,depth,hue){
+  if(depth<=0||len<3)return;
+  const x2=x+Math.cos(angle)*len,y2=y+Math.sin(angle)*len;
+  segs.push({x1:x,y1:y,x2,y2,hue,depth,drawn:false});
+  const spread=0.35+Math.random()*0.25;
+  branch(x2,y2,angle-spread,len*0.72,depth-1,(hue+15)%360);
+  branch(x2,y2,angle+spread,len*0.72,depth-1,(hue+30)%360);
+  if(depth>3&&Math.random()<0.4)branch(x2,y2,angle+(Math.random()-0.5)*1.2,len*0.55,depth-2,(hue+45)%360);
+}
+function init(){
+  segs.length=0;
+  ctx.fillStyle='#000';ctx.fillRect(0,0,W,H);
+  const roots=3+Math.floor(Math.random()*3);
+  for(let r=0;r<roots;r++)branch(W*(0.2+r*0.3),H,-Math.PI/2+( Math.random()-0.5)*0.5,Math.min(W,H)*0.18,8,80+r*40);
+  segs.forEach(s=>s.drawn=false);
+}
+let idx=0,t=0;
+function draw(){
+  t++;
+  const perFrame=3;
+  for(let i=0;i<perFrame&&idx<segs.length;i++,idx++){
+    const s=segs[idx];
+    ctx.strokeStyle=`hsla(${s.hue|0},80%,${35+s.depth*5}%,0.85)`;
+    ctx.lineWidth=Math.max(0.5,s.depth*0.4);
+    ctx.lineCap='round';
+    ctx.beginPath();ctx.moveTo(s.x1,s.y1);ctx.lineTo(s.x2,s.y2);ctx.stroke();
+    // tiny leaf at branch tips
+    if(s.depth<=2){
+      ctx.fillStyle=`hsla(${(s.hue+20)|0},90%,50%,0.7)`;
+      ctx.beginPath();ctx.ellipse(s.x2,s.y2,4,2,Math.atan2(s.y2-s.y1,s.x2-s.x1),0,Math.PI*2);ctx.fill();
+    }
+  }
+  if(idx>=segs.length&&t%200===0){idx=0;init();}
+  requestAnimationFrame(draw);
+}
+init();draw();
+
+</script></body></html>
+)EOF";
+
+static const char SNOWFLAKES_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SNOWFLAKES · COSMIC-C3</title><style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);border-bottom:1px solid #cceeff;padding:5px 10px;display:flex;justify-content:space-between;font-size:11px;z-index:9}.nav a{color:#cceeff;text-decoration:none}
+canvas{display:block}</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>SNOWFLAKES</span></div><canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c'),ctx=C.getContext('2d');
+let W,H;function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();if(typeof init==='function')init();});
+resize();
+
+function makeFlake(){
+  const arms=[];const branches=2+Math.floor(Math.random()*3);
+  const mainLen=20+Math.random()*30;
+  for(let b=0;b<branches;b++)arms.push({t:0.2+b*0.2,len:mainLen*(0.3+Math.random()*0.4),angle:Math.PI/4+Math.random()*Math.PI/6});
+  return{x:Math.random()*innerWidth,y:-30-Math.random()*200,vy:0.3+Math.random()*0.8,vx:(Math.random()-0.5)*0.4,mainLen,arms,rot:Math.random()*Math.PI/3,spin:(Math.random()-0.5)*0.005,size:0.5+Math.random()*1.2};
+}
+const flakes=Array.from({length:10},makeFlake);
+function drawFlake(f){
+  ctx.save();ctx.translate(f.x,f.y);ctx.rotate(f.rot);ctx.scale(f.size,f.size);
+  for(let spoke=0;spoke<6;spoke++){
+    ctx.save();ctx.rotate(spoke*Math.PI/3);
+    ctx.strokeStyle='rgba(200,230,255,0.85)';ctx.lineWidth=1.5;ctx.lineCap='round';
+    ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(0,-f.mainLen);ctx.stroke();
+    f.arms.forEach(a=>{
+      const ty=-f.mainLen*a.t;
+      ctx.beginPath();ctx.moveTo(0,ty);ctx.lineTo(Math.sin(a.angle)*a.len,ty-Math.cos(a.angle)*a.len);ctx.stroke();
+      ctx.beginPath();ctx.moveTo(0,ty);ctx.lineTo(-Math.sin(a.angle)*a.len,ty-Math.cos(a.angle)*a.len);ctx.stroke();
+    });
+    ctx.restore();
+  }
+  ctx.fillStyle='rgba(220,240,255,0.9)';ctx.beginPath();ctx.arc(0,0,3,0,Math.PI*2);ctx.fill();
+  ctx.restore();
+}
+let t=0;
+function draw(){
+  t++;ctx.fillStyle='rgba(0,5,20,0.25)';ctx.fillRect(0,0,W,H);
+  flakes.forEach(f=>{
+    f.x+=f.vx;f.y+=f.vy;f.rot+=f.spin;
+    if(f.y>H+40)Object.assign(f,makeFlake(),{x:Math.random()*W,y:-40});
+    drawFlake(f);
+  });
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script></body></html>
+)EOF";
+
+static const char CUBE3D_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CUBE 3D · COSMIC-C3</title><style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);border-bottom:1px solid #88ccff;padding:5px 10px;display:flex;justify-content:space-between;font-size:11px;z-index:9}.nav a{color:#88ccff;text-decoration:none}
+canvas{display:block}</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>CUBE 3D</span></div><canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c'),ctx=C.getContext('2d');
+let W,H;function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();if(typeof init==='function')init();});
+resize();
+
+const verts=[[-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1]];
+const edges=[[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]];
+const icoV=(()=>{const t=(1+Math.sqrt(5))/2,n=Math.sqrt(1+t*t);
+  return[[-1,t,0],[1,t,0],[-1,-t,0],[1,-t,0],[0,-1,t],[0,1,t],[0,-1,-t],[0,1,-t],[t,0,-1],[t,0,1],[-t,0,-1],[-t,0,1]].map(v=>v.map(x=>x/n));})();
+const icoE=[[0,1],[0,5],[0,7],[0,10],[0,11],[1,5],[1,7],[1,8],[1,9],[2,3],[2,4],[2,6],[2,10],[2,11],[3,4],[3,6],[3,8],[3,9],[4,5],[4,9],[4,11],[5,9],[5,11],[6,7],[6,8],[6,10],[7,8],[7,10],[8,9],[10,11]];
+let rx=0,ry=0,rz=0;let showIco=false;let switchT=0;
+function rot3(v,ax,ay,az){
+  let[x,y,z]=v;
+  let t=x;x=x*Math.cos(az)-y*Math.sin(az);y=t*Math.sin(az)+y*Math.cos(az);
+  t=x;x=x*Math.cos(ay)+z*Math.sin(ay);z=-t*Math.sin(ay)+z*Math.cos(ay);
+  t=y;y=y*Math.cos(ax)-z*Math.sin(ax);z=t*Math.sin(ax)+z*Math.cos(ax);
+  return[x,y,z];
+}
+function proj([x,y,z]){const f=W*0.55/(z+3.5);return[W/2+x*f,H/2+y*f,z];}
+let t=0;
+function draw(){
+  t+=0.015;rx+=0.008;ry+=0.013;rz+=0.005;
+  switchT++;if(switchT>300){showIco=!showIco;switchT=0;}
+  ctx.fillStyle='rgba(0,0,10,0.25)';ctx.fillRect(0,0,W,H);
+  const sc=Math.min(W,H)*0.22;
+  const V=showIco?icoV:verts,E=showIco?icoE:edges;
+  const projected=V.map(v=>{const[x,y,z]=rot3(v,rx,ry,rz);return proj([x*sc,y*sc,z*sc]);});
+  E.forEach(([a,b])=>{
+    const[x1,y1,z1]=projected[a],[x2,y2,z2]=projected[b];
+    const depth=(z1+z2)/2;const hue=(depth/sc*60+t*40+200)%360;
+    ctx.strokeStyle=`hsla(${hue|0},100%,65%,0.8)`;ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
+  });
+  projected.forEach(([x,y])=>{ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(x,y,2,0,Math.PI*2);ctx.fill();});
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script></body></html>
+)EOF";
+
+static const char TORUS_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TORUS · COSMIC-C3</title><style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);border-bottom:1px solid #ff66ff;padding:5px 10px;display:flex;justify-content:space-between;font-size:11px;z-index:9}.nav a{color:#ff66ff;text-decoration:none}
+canvas{display:block}</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>TORUS</span></div><canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c'),ctx=C.getContext('2d');
+let W,H;function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();if(typeof init==='function')init();});
+resize();
+
+let rx=0,ry=0;
+function rot3(x,y,z,ax,ay){
+  let ty=y*Math.cos(ax)-z*Math.sin(ax),tz=y*Math.sin(ax)+z*Math.cos(ax);y=ty;z=tz;
+  let tx=x*Math.cos(ay)+z*Math.sin(ay);tz=-x*Math.sin(ay)+z*Math.cos(ay);x=tx;z=tz;
+  return[x,y,z];
+}
+function proj(x,y,z){const f=W*0.5/(z+4);return[W/2+x*f,H/2+y*f];}
+const R=1,r=0.4,NU=32,NV=20;
+let t=0;
+function draw(){
+  t+=0.016;rx+=0.009;ry+=0.014;
+  ctx.fillStyle='rgba(0,0,0,0.2)';ctx.fillRect(0,0,W,H);
+  const sc=Math.min(W,H)*0.28;
+  for(let iu=0;iu<NU;iu++){
+    const u=iu/NU*Math.PI*2;
+    ctx.beginPath();let first=true;
+    for(let iv=0;iv<=NV;iv++){
+      const v=iv/NV*Math.PI*2;
+      const x=(R+r*Math.cos(v))*Math.cos(u),y=(R+r*Math.cos(v))*Math.sin(u),z=r*Math.sin(v);
+      const[rx2,ry2,rz2]=rot3(x*sc,y*sc,z*sc,rx,ry);
+      const[px,py]=proj(rx2,ry2,rz2);
+      const hue=(iu/NU*360+t*25)%360;
+      if(first){ctx.strokeStyle=`hsla(${hue|0},100%,65%,0.7)`;ctx.lineWidth=1;ctx.moveTo(px,py);first=false;}
+      else ctx.lineTo(px,py);
+    }
+    ctx.stroke();
+  }
+  for(let iv=0;iv<NV;iv++){
+    const v=iv/NV*Math.PI*2;
+    ctx.beginPath();let first=true;
+    for(let iu=0;iu<=NU;iu++){
+      const u=iu/NU*Math.PI*2;
+      const x=(R+r*Math.cos(v))*Math.cos(u),y=(R+r*Math.cos(v))*Math.sin(u),z=r*Math.sin(v);
+      const[rx2,ry2,rz2]=rot3(x*sc,y*sc,z*sc,rx,ry);
+      const[px,py]=proj(rx2,ry2,rz2);
+      const hue=(iv/NV*360+180+t*25)%360;
+      if(first){ctx.strokeStyle=`hsla(${hue|0},100%,60%,0.5)`;ctx.lineWidth=0.8;ctx.moveTo(px,py);first=false;}
+      else ctx.lineTo(px,py);
+    }
+    ctx.stroke();
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script></body></html>
+)EOF";
+
+static const char HYPERCUBE_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HYPERCUBE · COSMIC-C3</title><style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);border-bottom:1px solid #ffcc00;padding:5px 10px;display:flex;justify-content:space-between;font-size:11px;z-index:9}.nav a{color:#ffcc00;text-decoration:none}
+canvas{display:block}</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>HYPERCUBE</span></div><canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c'),ctx=C.getContext('2d');
+let W,H;function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();if(typeof init==='function')init();});
+resize();
+
+// 4D tesseract: 16 vertices, 32 edges
+const verts4=[];
+for(let i=0;i<16;i++)verts4.push([(i>>3&1)*2-1,(i>>2&1)*2-1,(i>>1&1)*2-1,(i&1)*2-1]);
+const edges4=[];
+for(let a=0;a<16;a++)for(let b=a+1;b<16;b++){
+  let diff=0;for(let d=0;d<4;d++)if(verts4[a][d]!==verts4[b][d])diff++;
+  if(diff===1)edges4.push([a,b]);
+}
+let a1=0,a2=0,a3=0,a4=0;
+function rot4(v,t){
+  let[x,y,z,w]=v;
+  // rotate in xw and yz planes
+  let tx=x*Math.cos(a1)-w*Math.sin(a1),tw=x*Math.sin(a1)+w*Math.cos(a1);x=tx;w=tw;
+  let ty=y*Math.cos(a2)-z*Math.sin(a2),tz=y*Math.sin(a2)+z*Math.cos(a2);y=ty;z=tz;
+  let tx2=x*Math.cos(a3)-y*Math.sin(a3),ty2=x*Math.sin(a3)+y*Math.cos(a3);x=tx2;y=ty2;
+  return[x,y,z,w];
+}
+function proj4to2(v){
+  const[x,y,z,w]=rot4(v);
+  const f4=2/(w+2.5);const x3=x*f4,y3=y*f4,z3=z*f4;
+  const f3=W*0.35/(z3+2.5);return[W/2+x3*f3,H/2+y3*f3,z3];
+}
+let t=0;
+function draw(){
+  t+=0.012;a1+=0.011;a2+=0.007;a3+=0.005;
+  ctx.fillStyle='rgba(0,0,0,0.18)';ctx.fillRect(0,0,W,H);
+  const sc=Math.min(W,H)*0.18;
+  const pts=verts4.map(v=>{const[x,y,z,w]=rot4(v);const f4=2/(w+2.5);const f3=W*0.35/(z*f4+2.5);return[W/2+x*f4*f3,H/2+y*f4*f3,z*f4];});
+  edges4.forEach(([a,b],i)=>{
+    const[x1,y1,z1]=pts[a],[x2,y2,z2]=pts[b];
+    const hue=(i*11+t*30)%360;
+    ctx.strokeStyle=`hsla(${hue|0},100%,65%,0.75)`;ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();
+  });
+  pts.forEach(([x,y])=>{ctx.fillStyle='rgba(255,255,255,0.7)';ctx.beginPath();ctx.arc(x,y,2,0,Math.PI*2);ctx.fill();});
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script></body></html>
+)EOF";
+
+static const char RETROGEO_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RETRO GEO · COSMIC-C3</title><style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);border-bottom:1px solid #ff44ff;padding:5px 10px;display:flex;justify-content:space-between;font-size:11px;z-index:9}.nav a{color:#ff44ff;text-decoration:none}
+canvas{display:block}</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>RETRO GEO</span></div><canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c'),ctx=C.getContext('2d');
+let W,H;function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();if(typeof init==='function')init();});
+resize();
+
+const PALETTE=['#ff00ff','#00ffff','#ffff00','#ff8800','#00ff44','#ff0088','#8800ff','#44ffff'];
+const shapes=[];
+function spawn(){
+  const type=['circle','rect','triangle','line'][Math.floor(Math.random()*4)];
+  const color=PALETTE[Math.floor(Math.random()*PALETTE.length)];
+  const sz=20+Math.random()*80;
+  shapes.push({type,color,x:Math.random()*W,y:Math.random()*H,sz,
+    vx:(Math.random()-0.5)*2,vy:(Math.random()-0.5)*2,
+    rot:Math.random()*Math.PI*2,spin:(Math.random()-0.5)*0.04,life:1});
+}
+for(let i=0;i<20;i++)spawn();
+function drawShape(s){
+  ctx.save();ctx.translate(s.x,s.y);ctx.rotate(s.rot);
+  ctx.strokeStyle=s.color;ctx.lineWidth=2;ctx.globalAlpha=s.life;
+  if(s.type==='circle'){ctx.beginPath();ctx.arc(0,0,s.sz/2,0,Math.PI*2);ctx.stroke();}
+  else if(s.type==='rect'){ctx.strokeRect(-s.sz/2,-s.sz/2,s.sz,s.sz);}
+  else if(s.type==='triangle'){ctx.beginPath();ctx.moveTo(0,-s.sz/2);ctx.lineTo(s.sz/2,s.sz/2);ctx.lineTo(-s.sz/2,s.sz/2);ctx.closePath();ctx.stroke();}
+  else{ctx.beginPath();ctx.moveTo(-s.sz/2,0);ctx.lineTo(s.sz/2,0);ctx.stroke();}
+  ctx.globalAlpha=1;ctx.restore();
+}
+let t=0;
+function draw(){
+  t++;ctx.fillStyle='rgba(0,0,0,0.15)';ctx.fillRect(0,0,W,H);
+  // scanlines
+  if(t%4===0){ctx.fillStyle='rgba(0,0,0,0.05)';for(let y=0;y<H;y+=4)ctx.fillRect(0,y,W,1);}
+  for(let i=shapes.length-1;i>=0;i--){
+    const s=shapes[i];
+    s.x+=s.vx;s.y+=s.vy;s.rot+=s.spin;s.life-=0.003;
+    if(s.life<=0){shapes.splice(i,1);spawn();continue;}
+    if(s.x<-100||s.x>W+100||s.y<-100||s.y>H+100){s.x=Math.random()*W;s.y=Math.random()*H;}
+    drawShape(s);
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script></body></html>
+)EOF";
+
+static const char MIRRORBLOB_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MIRROR BLOB · COSMIC-C3</title><style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);border-bottom:1px solid #ff44aa;padding:5px 10px;display:flex;justify-content:space-between;font-size:11px;z-index:9}.nav a{color:#ff44aa;text-decoration:none}
+canvas{display:block}</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>MIRROR BLOB</span></div><canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c'),ctx=C.getContext('2d');
+let W,H;function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();if(typeof init==='function')init();});
+resize();
+
+let t=0;
+function draw(){
+  t+=0.025;
+  ctx.fillStyle='rgba(0,0,0,0.18)';ctx.fillRect(0,0,W,H);
+  const qw=W/2,qh=H/2;
+  // draw blob in top-left quadrant, mirror to others
+  for(let m=0;m<4;m++){
+    ctx.save();
+    ctx.translate(m%2===0?0:W,m<2?0:H);
+    ctx.scale(m%2===0?1:-1,m<2?1:-1);
+    // blob path
+    const N=6,pts=[];
+    for(let i=0;i<N;i++){
+      const base=i/N*Math.PI*2;
+      const r=qw*0.35+qw*0.12*Math.sin(t*2+i*1.3)+qw*0.08*Math.sin(t*3.1+i*2.7);
+      pts.push([qw/2+Math.cos(base)*r,qh/2+Math.sin(base)*r]);
+    }
+    const hue=(t*20)%360;
+    ctx.beginPath();
+    ctx.moveTo(pts[0][0],pts[0][1]);
+    for(let i=0;i<N;i++){
+      const p=pts[(i+1)%N],pp=pts[i];
+      const mx=(pp[0]+p[0])/2,my=(pp[1]+p[1])/2;
+      ctx.quadraticCurveTo(pp[0],pp[1],mx,my);
+    }
+    ctx.closePath();
+    const g=ctx.createRadialGradient(qw/2,qh/2,0,qw/2,qh/2,qw*0.45);
+    g.addColorStop(0,`hsla(${hue|0},100%,75%,0.8)`);
+    g.addColorStop(0.5,`hsla(${(hue+40)|0},100%,55%,0.6)`);
+    g.addColorStop(1,`hsla(${(hue+80)|0},100%,30%,0.2)`);
+    ctx.fillStyle=g;ctx.fill();
+    ctx.strokeStyle=`hsla(${hue|0},100%,85%,0.5)`;ctx.lineWidth=2;ctx.stroke();
+    ctx.restore();
+  }
+  // center cross glow
+  const cg=ctx.createRadialGradient(W/2,H/2,0,W/2,H/2,30);
+  cg.addColorStop(0,'rgba(255,255,255,0.5)');cg.addColorStop(1,'transparent');
+  ctx.fillStyle=cg;ctx.beginPath();ctx.arc(W/2,H/2,30,0,Math.PI*2);ctx.fill();
+  requestAnimationFrame(draw);
+}
+draw();
+
+</script></body></html>
+)EOF";
+
+static const char CITYFLOW_HTML[] = R"EOF(
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CITY FLOW · COSMIC-C3</title><style>*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;overflow:hidden;font-family:monospace}
+.nav{position:fixed;top:0;left:0;right:0;background:rgba(0,0,0,.7);border-bottom:1px solid #ffaa44;padding:5px 10px;display:flex;justify-content:space-between;font-size:11px;z-index:9}.nav a{color:#ffaa44;text-decoration:none}
+canvas{display:block}</style>
+</head><body>
+<div class="nav"><a href="/">&#x2B21; MODES</a><span>CITY FLOW</span></div><canvas id="c"></canvas>
+<script>
+const C=document.getElementById('c'),ctx=C.getContext('2d');
+let W,H;function resize(){W=C.width=innerWidth;H=C.height=innerHeight;}
+window.addEventListener('resize',()=>{resize();if(typeof init==='function')init();});
+resize();
+
+const ROWS=12,COLS=16,NCARS=80;
+let gridW,gridH,cw,ch;
+const cars=[];
+function init(){
+  gridW=W;gridH=H;cw=W/COLS;ch=H/ROWS;
+  cars.length=0;
+  for(let i=0;i<NCARS;i++){
+    const horiz=Math.random()<0.5;
+    const lane=Math.floor(Math.random()*(horiz?ROWS:COLS));
+    const pos=Math.random()*(horiz?COLS:ROWS);
+    const dir=Math.random()<0.5?1:-1;
+    const hue=horiz?200+Math.random()*40:20+Math.random()*40;
+    cars.push({horiz,lane,pos,dir,speed:(0.04+Math.random()*0.04)*dir,hue});
+  }
+}
+let t=0;
+function draw(){
+  t++;ctx.fillStyle='#050505';ctx.fillRect(0,0,W,H);
+  // road grid
+  ctx.strokeStyle='rgba(50,50,80,0.8)';ctx.lineWidth=1;
+  for(let r=0;r<=ROWS;r++){ctx.beginPath();ctx.moveTo(0,r*ch);ctx.lineTo(W,r*ch);ctx.stroke();}
+  for(let c=0;c<=COLS;c++){ctx.beginPath();ctx.moveTo(c*cw,0);ctx.lineTo(c*cw,H);ctx.stroke();}
+  // buildings in cells
+  for(let r=0;r<ROWS;r++)for(let c=0;c<COLS;c++){
+    const bright=30+((r*3+c*7)%30);
+    ctx.fillStyle=`rgb(${bright},${bright},${bright+10})`;
+    ctx.fillRect(c*cw+3,r*ch+3,cw-6,ch-6);
+  }
+  // cars (headlights + taillights trail)
+  cars.forEach(car=>{
+    car.pos+=car.speed;
+    const max=car.horiz?COLS:ROWS;
+    if(car.pos>max+1)car.pos=-1;if(car.pos<-1)car.pos=max+1;
+    const x=car.horiz?car.pos*cw:car.lane*cw+cw/2;
+    const y=car.horiz?car.lane*ch+ch/2:car.pos*ch;
+    // trail
+    ctx.fillStyle=`hsla(${car.dir>0?car.hue:(car.hue+180)%360},100%,50%,0.25)`;
+    for(let i=1;i<=4;i++){
+      const tx=car.horiz?x-car.dir*i*6:x,ty=car.horiz?y:y-car.dir*i*6;
+      ctx.beginPath();ctx.arc(tx,ty,2,0,Math.PI*2);ctx.fill();
+    }
+    // headlight
+    ctx.fillStyle=`hsla(${car.hue},100%,80%,0.9)`;
+    ctx.beginPath();ctx.arc(x,y,3,0,Math.PI*2);ctx.fill();
+    const glow=ctx.createRadialGradient(x,y,0,x,y,10);
+    glow.addColorStop(0,`hsla(${car.hue},100%,70%,0.4)`);glow.addColorStop(1,'transparent');
+    ctx.fillStyle=glow;ctx.beginPath();ctx.arc(x,y,10,0,Math.PI*2);ctx.fill();
+  });
+  requestAnimationFrame(draw);
+}
+init();draw();
+
+</script></body></html>
+)EOF";
+
 void handleSnake()      { server.send(200, "text/html", SNAKE_HTML);      }
+void handleApollonian() { server.send(200, "text/html", APOLLONIAN_HTML); }
+void handleSunflower() { server.send(200, "text/html", SUNFLOWER_HTML); }
+void handleQuasicrystal() { server.send(200, "text/html", QUASICRYSTAL_HTML); }
+void handleLorenz() { server.send(200, "text/html", LORENZ_HTML); }
+void handleMandelbrot() { server.send(200, "text/html", MANDELBROT_HTML); }
+void handleReaction() { server.send(200, "text/html", REACTION_HTML); }
+void handleMaze() { server.send(200, "text/html", MAZE_HTML); }
+void handleVines() { server.send(200, "text/html", VINES_HTML); }
+void handleSnowflakes() { server.send(200, "text/html", SNOWFLAKES_HTML); }
+void handleCube3d() { server.send(200, "text/html", CUBE3D_HTML); }
+void handleTorus() { server.send(200, "text/html", TORUS_HTML); }
+void handleHypercube() { server.send(200, "text/html", HYPERCUBE_HTML); }
+void handleRetrogeo() { server.send(200, "text/html", RETROGEO_HTML); }
+void handleMirrorblob() { server.send(200, "text/html", MIRRORBLOB_HTML); }
+void handleCityflow() { server.send(200, "text/html", CITYFLOW_HTML); }
+
 void handleFireworks() { server.send(200, "text/html", FIREWORKS_HTML); }
 void handleCoral() { server.send(200, "text/html", CORAL_HTML); }
 void handleCwaves() { server.send(200, "text/html", CWAVES_HTML); }
@@ -3561,6 +4450,22 @@ void setup() {
     server.on("/lava2",       HTTP_GET, handleLava2);
     server.on("/noise",       HTTP_GET, handleNoise);
     server.on("/snake",       HTTP_GET, handleSnake);
+    server.on("/apollonian", HTTP_GET, handleApollonian);
+    server.on("/sunflower", HTTP_GET, handleSunflower);
+    server.on("/quasicrystal", HTTP_GET, handleQuasicrystal);
+    server.on("/lorenz", HTTP_GET, handleLorenz);
+    server.on("/mandelbrot", HTTP_GET, handleMandelbrot);
+    server.on("/reaction", HTTP_GET, handleReaction);
+    server.on("/maze", HTTP_GET, handleMaze);
+    server.on("/vines", HTTP_GET, handleVines);
+    server.on("/snowflakes", HTTP_GET, handleSnowflakes);
+    server.on("/cube3d", HTTP_GET, handleCube3d);
+    server.on("/torus", HTTP_GET, handleTorus);
+    server.on("/hypercube", HTTP_GET, handleHypercube);
+    server.on("/retrogeo", HTTP_GET, handleRetrogeo);
+    server.on("/mirrorblob", HTTP_GET, handleMirrorblob);
+    server.on("/cityflow", HTTP_GET, handleCityflow);
+
     server.on("/fireworks", HTTP_GET, handleFireworks);
     server.on("/coral", HTTP_GET, handleCoral);
     server.on("/cwaves", HTTP_GET, handleCwaves);
