@@ -20,7 +20,7 @@
 #include <WebServer.h>
 #include <DNSServer.h>
 
-const char* AP_SSID   = "COSMIC-C3";
+const char* AP_SSID   = "COSMIC-C3 FREE ART PORTAL 🎨";
 const byte  DNS_PORT  = 53;
 const char* PORTAL_IP = "192.168.4.1";
 #define LED_PIN 8
@@ -2645,8 +2645,9 @@ static const char TETRIS_HTML[] = R"EOF(
 const C=document.getElementById('c'),ctx=C.getContext('2d');
 const NC=document.getElementById('nc'),nctx=NC.getContext('2d');
 const COLS=10,ROWS=20;
-const SZ=Math.min(Math.floor((window.innerHeight-155)/ROWS),Math.floor((window.innerWidth-92)/COLS));
-C.width=COLS*SZ;C.height=ROWS*SZ;NC.width=4*SZ;NC.height=4*SZ;
+const SZ=Math.min(Math.floor((window.innerHeight-155)/ROWS),Math.floor((window.innerWidth-16)/(COLS+3)));
+const NSZ=Math.floor(SZ*0.7);
+C.width=COLS*SZ;C.height=ROWS*SZ;NC.width=4*NSZ;NC.height=4*NSZ;
 const SHP=[[[1,1,1,1]],[[1,1],[1,1]],[[0,1,0],[1,1,1]],[[0,1,1],[1,1,0]],[[1,1,0],[0,1,1]],[[1,0,0],[1,1,1]],[[0,0,1],[1,1,1]]];
 const CLR=['#00e5ff','#ffee00','#cc44ff','#00ff66','#ff4444','#4466ff','#ff8800'];
 let grid,pc,nx,score,lines,level,hi=0,tid,state;
@@ -2703,7 +2704,7 @@ function draw(){
   pc.sh.forEach((r,ri)=>r.forEach((v,ci)=>{if(v)dcell(pc.t+1,ctx,pc.x+ci,pc.y+ri,SZ);}));
   nctx.fillStyle='#000';nctx.fillRect(0,0,NC.width,NC.height);
   const ns=nx.sh,ox=Math.floor((4-ns[0].length)/2),oy=Math.floor((4-ns.length)/2);
-  ns.forEach((r,ri)=>r.forEach((v,ci)=>{if(v)dcell(nx.t+1,nctx,ox+ci,oy+ri,SZ);}));
+  ns.forEach((r,ri)=>r.forEach((v,ci)=>{if(v)dcell(nx.t+1,nctx,ox+ci,oy+ri,NSZ);}));
 }
 function move(dx){if(ok(pc.sh,pc.x+dx,pc.y)){pc.x+=dx;draw();}}
 function rotate(){const ns=rot(pc.sh);for(const dx of[0,-1,1,-2,2]){if(ok(ns,pc.x+dx,pc.y)){pc.sh=ns;pc.x+=dx;draw();return;}}}
